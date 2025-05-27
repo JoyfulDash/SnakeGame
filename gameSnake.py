@@ -29,6 +29,15 @@ Green = (50, 205, 50)
 Red = (255, 0, 0)
 White = (255, 255, 255)
 
+# Food types: color and score value
+food_types = [
+    {"color": (255, 0, 0), "score": 50},      # Red
+    {"color": (255, 165, 0), "score": 25},    # Orange
+]
+
+# Initialize current food type index
+current_food_type = random.choice(food_types)
+
 cellsize = 20
 player = pygame.Rect(300, 200, cellsize, cellsize)
 snake = [player.copy()]
@@ -42,6 +51,7 @@ food = pygame.Rect(
     random.randint(0, (height - cellsize) // cellsize) * cellsize,
     cellsize, cellsize
 )
+current_food_type = random.choice(food_types)
 
 CLOCK = pygame.time.Clock()
 font = pygame.font.SysFont(None, 48)
@@ -267,10 +277,10 @@ while running:
         if new_head.colliderect(food):
             if sound_effects_enabled:
                 eat_sound.play()
-            score += 50
-            update_speed()
+            score += current_food_type["score"]
             food.x = random.randint(0, (width - cellsize) // cellsize) * cellsize
             food.y = random.randint(0, (height - cellsize) // cellsize) * cellsize
+            current_food_type = random.choice(food_types)
         else:
             snake.pop()
 
@@ -279,7 +289,7 @@ while running:
     screen.fill(Black)
 
     if state == "Menu":
-        title = font.render("Snake Game", True, Green)
+        title = font.render("Snake ", True, Green)
         screen.blit(title, (width // 2 - title.get_width() // 2, 50))
         for i, option in enumerate(menu_options):
             color = Red if i == selected_option else White
@@ -311,7 +321,7 @@ while running:
     elif state == "Playing":
         for segment in snake:
             pygame.draw.rect(screen, Green, segment)
-        pygame.draw.rect(screen, Red, food)
+        pygame.draw.rect(screen, current_food_type["color"], food)
         s_text = pygame.font.SysFont(None, 36).render(f"Score: {score}", True, White)
         screen.blit(s_text, (10, 10))
         mute_status = pygame.font.SysFont(None, 24).render("Muted" if music_muted else "Press M to Mute", True, White)
