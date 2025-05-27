@@ -62,7 +62,7 @@ def reset_game():
     food.y = random.randint(0, (height - cellsize) // cellsize) * cellsize
     score = 0
 
-FIREBASE_DB_URL = "https://papusnakeleaderboard-default-rtdb.firebaseio.com/"
+FIREBASE_DB_URL = "https://snake-game-leaderboard-31464-default-rtdb.firebaseio.com/"
 
 def load_leaderboard():
     try:
@@ -74,9 +74,6 @@ def load_leaderboard():
     except Exception as e:
         print("Failed to load leaderboard:", e)
     return []
-
-base_dir = os.path.dirname(os.path.abspath(__file__))
-image_path = os.path.join(base_dir, "papusprogramming.png")
 
 def update_leaderboard(name, new_score):
     leaderboard = load_leaderboard()
@@ -99,25 +96,9 @@ def get_highest_score():
 
 highest_score = get_highest_score()
 
-intro_image = pygame.image.load(image_path)
-intro_image = pygame.transform.scale(intro_image, (550, 350))
-
-def show_intro():
-    image_rect = intro_image.get_rect(center=(width // 2, height // 2))
-    screen.blit(intro_image, image_rect.topleft)
-    pygame.display.update()
-    start_time = pygame.time.get_ticks()
-    showing = True
-    while showing:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
-        if pygame.time.get_ticks() - start_time > 2000:
-            showing = False
-
 pygame.mixer.init()
 
+base_dir = os.path.dirname(os.path.abspath(__file__))
 background_music_path = os.path.join(base_dir, "background.wav")
 eat_sound = pygame.mixer.Sound(os.path.join(base_dir, "eat.wav"))
 death_sound = pygame.mixer.Sound(os.path.join(base_dir, "death.wav"))
@@ -126,7 +107,6 @@ pygame.mixer.music.load(background_music_path)
 pygame.mixer.music.set_volume(0.5)
 pygame.mixer.music.play(-1)
 
-show_intro()
 running = True
 game_over = False
 
@@ -309,7 +289,7 @@ while running:
     elif state == "Credits":
         title = font.render("Credits", True, Green)
         screen.blit(title, (width // 2 - title.get_width() // 2, 50))
-        credit = pygame.font.SysFont(None, 32).render("Made by PapusProgramming", True, Red)
+        credit = pygame.font.SysFont(None, 32).render("Thanks for playing", True, Red)
         screen.blit(credit, (width // 2 - credit.get_width() // 2, height // 2))
         esc = pygame.font.SysFont(None, 32).render("Press ESC to Return", True, White)
         screen.blit(esc, (width // 2 - esc.get_width() // 2, height - 50))
@@ -348,47 +328,35 @@ while running:
             game_over_zoom_in_animation()
 
         # Draw "Game Over" in red at fixed size near the top
-        game_over_font = pygame.font.SysFont(None, 72)
-        game_over_text = game_over_font.render("Game Over", True, Red)
-        screen.blit(game_over_text, (width // 2 - game_over_text.get_width() // 2, height // 2 - 100))
-
-        # Show prompt text below the Game Over text
-        prompt_font = pygame.font.SysFont(None, 36)
-        prompt_text = prompt_font.render("Press Enter to Restart or Q for Main Menu", True, White)
-        screen.blit(prompt_text, (width // 2 - prompt_text.get_width() // 2, height // 2))
-
-        # Check for input here (also handled in event loop)
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_RETURN] or keys[1073741912]:
-            reset_game()
-            state = "Playing"
-            game_over = False
-            game_over_zoom_in_animation.done = False
-        elif keys[pygame.K_q]:
-            reset_game()
-            state = "Menu"
-            game_over = False
-            game_over_zoom_in_animation.done = False
-
+        game_over_font = pygame.font.SysFont(None, 60)
+        go_text = game_over_font.render("Game Over", True, Red)
+        screen.blit(go_text, (width // 2 - go_text.get_width() // 2, 50))
+        score_text = font.render(f"Score: {score}", True, White)
+        screen.blit(score_text, (width // 2 - score_text.get_width() // 2, height // 2 - score_text.get_height() // 2))
+        retry_msg = pygame.font.SysFont(None, 24).render("Press Q to Quit", True, White)
+        screen.blit(retry_msg, (width // 2 - retry_msg.get_width() // 2, height - 50))
 
     elif state == "Leaderboard":
         title = font.render("Leaderboard", True, Green)
-        screen.blit(title, (width // 2 - title.get_width() // 2, 50))
+        screen.blit(title, (width // 2 - title.get_width() // 2, 20))
         leaderboard = load_leaderboard()
-        for i, (name, scr) in enumerate(leaderboard):
-            entry = pygame.font.SysFont(None, 32).render(f"{i+1}. {name} - {scr}", True, White)
-            screen.blit(entry, (width // 2 - entry.get_width() // 2, 100 + i * 30))
+        for i, (name, sc) in enumerate(leaderboard):
+            entry_text = pygame.font.SysFont(None, 28).render(f"{i+1}. {name}: {sc}", True, White)
+            screen.blit(entry_text, (width // 2 - entry_text.get_width() // 2, 70 + i * 30))
         esc = pygame.font.SysFont(None, 24).render("Press ESC to Return", True, Red)
-        screen.blit(esc, (width // 2 - esc.get_width() // 2, height - 50))
+        screen.blit(esc, (width // 2 - esc.get_width() // 2, height - 40))
 
     elif state == "EnterName":
-        prompt = font.render("New High Score! Enter your name:", True, Green)
+        prompt = font.render("New High Score! Enter Name:", True, Green)
         screen.blit(prompt, (width // 2 - prompt.get_width() // 2, 100))
+        input_box = pygame.Rect(width // 2 - 100, 200, 200, 40)
+        pygame.draw.rect(screen, White, input_box, 2)
         name_surface = font.render(input_name, True, White)
-        screen.blit(name_surface, (width // 2 - name_surface.get_width() // 2, 150))
+        screen.blit(name_surface, (input_box.x + 5, input_box.y + 5))
         esc = pygame.font.SysFont(None, 24).render("Press ESC to Cancel", True, White)
-        screen.blit(esc, (width // 2 - esc.get_width() // 2, height - 50))
+        screen.blit(esc, (width // 2 - esc.get_width() // 2, height - 40))
 
     pygame.display.update()
 
 pygame.quit()
+sys.exit()
