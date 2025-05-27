@@ -22,7 +22,7 @@ new_high_score = False
 
 width, height = 600, 400
 screen = pygame.display.set_mode((width, height))
-pygame.display.set_caption("PapuSnakeGame")
+pygame.display.set_caption("Snake Game")
 
 Black = (0, 0, 0)
 Green = (50, 205, 50)
@@ -279,7 +279,7 @@ while running:
     screen.fill(Black)
 
     if state == "Menu":
-        title = font.render("Snake de Papu", True, Green)
+        title = font.render("Snake Game", True, Green)
         screen.blit(title, (width // 2 - title.get_width() // 2, 50))
         for i, option in enumerate(menu_options):
             color = Red if i == selected_option else White
