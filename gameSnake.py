@@ -32,7 +32,8 @@ White = (255, 255, 255)
 # Food types: color and score value
 food_types = [
     {"color": (255, 0, 0), "score": 50},      # Red
-    {"color": (255, 165, 0), "score": 25},    # Orange
+    {"color": (255, 165, 0), "score": 30},    # Orange
+    {"color": ((0, 255, 0)), "score": 60}    # Green
 ]
 
 # Initialize current food type index
@@ -146,18 +147,19 @@ while running:
             running = False
 
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_q:
+            if event.key == pygame.K_q and state != "EnterName":
                 if state in ("Playing", "GameOver"):
                     reset_game()
                     state = "Menu"
                     game_over = False
-                    game_over_zoom_in_animation.done = False  # Reset animation flag on quit
+                    game_over_zoom_in_animation.done = False
                 elif state == "Leaderboard":
                     pass
                 elif state == "Credits":
                     pass
                 else:
                     running = False
+
 
             if event.key == pygame.K_m and state not in ("EnterName",):
                 music_muted = not music_muted
@@ -264,15 +266,30 @@ while running:
         if new_head in snake[1:]:
             if sound_effects_enabled:
                 death_sound.play()
+
             game_over = True
-            if check_high_score(score):
-                if score > highest_score:
-                    new_high_score = True
+
+            leaderboard = load_leaderboard()
+            scores = [s for _, s in leaderboard]
+            is_new_high_score = check_high_score(score)
+
+            if is_new_high_score:
+                new_high_score = True
                 state = "EnterName"
                 input_name = ""
             else:
                 state = "GameOver"
-                game_over_zoom_in_animation.done = False  # Reset animation flag when first entering GameOver
+                game_over_zoom_in_animation.done = False  # Let it run once inside GameOver state
+
+            game_over = True
+
+            if is_new_high_score:
+                new_high_score = True
+                state = "EnterName"
+                input_name = ""
+            else:
+                state = "GameOver"
+                game_over_zoom_in_animation.done = False
 
         if new_head.colliderect(food):
             if sound_effects_enabled:
@@ -343,7 +360,7 @@ while running:
         screen.blit(go_text, (width // 2 - go_text.get_width() // 2, 50))
         score_text = font.render(f"Score: {score}", True, White)
         screen.blit(score_text, (width // 2 - score_text.get_width() // 2, height // 2 - score_text.get_height() // 2))
-        retry_msg = pygame.font.SysFont(None, 24).render("Press Q to Quit", True, White)
+        retry_msg = pygame.font.SysFont(None, 24).render("Press Q for Main Menu", True, White)
         screen.blit(retry_msg, (width // 2 - retry_msg.get_width() // 2, height - 50))
 
     elif state == "Leaderboard":
