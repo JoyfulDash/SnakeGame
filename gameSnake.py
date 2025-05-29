@@ -186,8 +186,13 @@ def handle_mouse_click(x, y):
             state = "Menu"
 
     elif state == "EnterName":
-        # Clicking inside name box could be optional — no interaction needed now
-        pass
+        esc_text = pygame.font.SysFont(None, 24).render("Press ESC to Return", True, Red)
+        esc_rect = esc_text.get_rect(center=(width // 2, height - 40))
+        if esc_rect.collidepoint(x, y):
+            input_name = ""
+            new_high_score = False
+            state = "Menu"
+
 
 #main game loop
 while running:
@@ -336,14 +341,6 @@ while running:
 
             game_over = True
 
-            if is_new_high_score:
-                new_high_score = True
-                state = "EnterName"
-                input_name = ""
-            else:
-                state = "GameOver"
-                game_over_zoom_in_animation.done = False
-
         if new_head.colliderect(food):
             if sound_effects_enabled:
                 eat_sound.play()
@@ -436,15 +433,17 @@ while running:
     elif state == "EnterName":
         prompt = font.render("New High Score! Enter your name:", True, Green)
         screen.blit(prompt, (width // 2 - prompt.get_width() // 2, 100))
-        
-        # Calculate blinking cursor
+
+        # Blinking cursor logic
         cursor_char = "|" if pygame.time.get_ticks() // 500 % 2 == 0 else ""
         name_with_cursor = input_name + cursor_char
         name_surface = font.render(name_with_cursor, True, White)
         screen.blit(name_surface, (width // 2 - name_surface.get_width() // 2, 150))
-        
-        esc = pygame.font.SysFont(None, 24).render("Press ESC to Cancel", True, White)
-        screen.blit(esc, (width // 2 - esc.get_width() // 2, height - 50))
+
+        # Draw ESC message only (no click detection here)
+        esc_text = pygame.font.SysFont(None, 24).render("Press ESC to Return", True, Red)
+        esc_rect = esc_text.get_rect(center=(width // 2, height - 40))
+        screen.blit(esc_text, esc_rect)
 
     pygame.display.update()
 
