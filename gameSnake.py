@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 
-import pygame, random, sys, os, requests
+import pygame, random, sys, os, requests, time
 
+# Global variables
 music_muted = False
 sound_effects_enabled = True
 paused_option = 0
 pause_menu_options = ["Resume", "Toggle Sound Effects", "Toggle Music", "Main Menu"]
+last_powerup_time = 0 #track last spawn/hide time in milliseconds
 
 pygame.init()
 
@@ -368,14 +370,18 @@ while running:
 
         player = new_head
 
-        # Handle spawning powerup randomly
-        if not powerups["active"] and random.randint(1, 150) == 1:
-            spawn_powerup()
+        current_time = pygame.time.get_ticks()
 
-        # Check if powerup has expired
-        if powerups["active"] and pygame.time.get_ticks() - powerups["spawn_time"] > powerups["duration"]:
+        # Spawn powerup every 2 minutes if none active
+        if not powerups["active"] and current_time - last_powerup_time >= 120000:  # 2 minutes = 120,000 ms
+            spawn_powerup()
+            last_powerup_time = current_time
+
+        # Hide powerup after duration
+        if powerups["active"] and current_time - powerups["spawn_time"] > powerups["duration"]:
             powerups["active"] = False
-            powerups["rect"].x = -100  # Hide it offscreen
+            powerups["rect"].x = -100  # Hide offscreen
+            last_powerup_time = current_time  # reset timer when powerup disappears
 
         # Check collision with powerup
         if powerups["active"] and player.colliderect(powerups["rect"]):
