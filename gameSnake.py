@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
 
-import pygame, random, sys, os, requests
+import pygame, random, sys, os, requests, time
 
+# Global variables
 music_muted = False
 sound_effects_enabled = True
 paused_option = 0
 pause_menu_options = ["Resume", "Toggle Sound Effects", "Toggle Music", "Main Menu"]
+last_powerup_time = 0 #track last spawn/hide time in milliseconds
+slow_effect_active = False
+slow_effect_start_time = 0
+fps = 30
+normal_fps = fps # to keep track of normal speed
 
 pygame.init()
 
@@ -15,7 +21,7 @@ state = "Menu"
 input_name = ""
 name_enter_active = False
 new_high_score = False
-
+cellsize = 20
 width, height = 600, 400
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Snake Game")
@@ -29,13 +35,21 @@ White = (255, 255, 255)
 food_types = [
     {"color": (255, 0, 0), "score": 50},      # Red
     {"color": (255, 165, 0), "score": 30},    # Orange
-    {"color": ((0, 255, 0)), "score": 60}    # Green
+    {"color": ((255, 255, 0)), "score": 60}    # Yellow
 ]
+
+#powerups
+powerups = {
+    "rect": pygame.Rect(-100, -100, cellsize, cellsize), # Offscreen initially
+    "color": (0, 255, 255), # Cyan
+    "score": 0, # Score value for powerup
+    "duration": 7000, # 7 seconds
+    "active": False
+}
 
 # Initialize current food type index
 current_food_type = random.choice(food_types)
 
-cellsize = 20
 player = pygame.Rect(300, 200, cellsize, cellsize)
 snake = [player.copy()]
 velocity = cellsize
@@ -56,7 +70,6 @@ fps = 10
 score = 0
 
 def update_speed():
-    global fps
     fps = 10 + (score // 1000) * 2
 
 def reset_game():
@@ -193,9 +206,23 @@ def handle_mouse_click(x, y):
             new_high_score = False
             state = "Menu"
 
+#spawn powerup
+def spawn_powerup():
+    powerups["rect"].x = random.randint(0, (width - cellsize) // cellsize) * cellsize
+    powerups["rect"].y = random.randint(0, (height - cellsize) // cellsize) * cellsize
+    powerups["spawn_time"] = pygame.time.get_ticks()
+    powerups["active"] = True
+
 
 #main game loop
 while running:
+    current_time = pygame.time.get_ticks()
+
+    # Restore speed if slow effect duration is over
+    if slow_effect_active and current_time - slow_effect_start_time >= 10000: # 10 seconds
+        fps = normal_fps
+        slow_effect_active = False
+
     CLOCK.tick(fps)
 
     for event in pygame.event.get():
@@ -353,8 +380,38 @@ while running:
 
         player = new_head
 
+        current_time = pygame.time.get_ticks()
+
+        # Spawn powerup every 2 minutes if none active
+        if not powerups["active"] and current_time - last_powerup_time >= 120000:  # 2 minutes = 120,000 ms
+            spawn_powerup()
+            last_powerup_time = current_time
+
+        # Hide powerup after duration
+        if powerups["active"] and current_time - powerups["spawn_time"] > powerups["duration"]:
+            powerups["active"] = False
+            powerups["rect"].x = -100  # Hide offscreen
+            last_powerup_time = current_time  # reset timer when powerup disappears
+
+        # Check collision with powerup
+        if powerups["active"] and player.colliderect(powerups["rect"]):
+            powerups["active"] = False
+            powerups["rect"].x = -100
+            # Bonus effect here — increase score or trigger effect
+            score += 100  # Or any special effect
+            if sound_effects_enabled:
+                eat_sound.play()
+             # Slow down the snake for 10 seconds
+            if not slow_effect_active:
+                normal_fps = fps  # save current fps
+                fps = max(5, fps // 2)  # slow speed, minimum 5 fps
+                slow_effect_active = True
+                slow_effect_start_time = current_time
+
+
     screen.fill(Black)
 
+    # State rendering
     if state == "Menu":
         title = font.render("Snake ", True, Green)
         screen.blit(title, (width // 2 - title.get_width() // 2, 50))
@@ -391,6 +448,11 @@ while running:
         for segment in snake:
             pygame.draw.rect(screen, Green, segment)
         pygame.draw.rect(screen, current_food_type["color"], food)
+
+        # Draw powerup
+        if powerups["active"]:
+            pygame.draw.rect(screen, powerups["color"], powerups["rect"])
+
         s_text = pygame.font.SysFont(None, 36).render(f"Score: {score}", True, White)
         screen.blit(s_text, (10, 10))
         mute_status = pygame.font.SysFont(None, 24).render("Muted" if music_muted else "Press M to Mute", True, White)
