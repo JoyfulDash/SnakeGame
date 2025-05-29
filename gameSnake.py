@@ -8,6 +8,10 @@ sound_effects_enabled = True
 paused_option = 0
 pause_menu_options = ["Resume", "Toggle Sound Effects", "Toggle Music", "Main Menu"]
 last_powerup_time = 0 #track last spawn/hide time in milliseconds
+slow_effect_active = False
+slow_effect_start_time = 0
+fps = 30
+normal_fps = fps # to keep track of normal speed
 
 pygame.init()
 
@@ -66,7 +70,6 @@ fps = 10
 score = 0
 
 def update_speed():
-    global fps
     fps = 10 + (score // 1000) * 2
 
 def reset_game():
@@ -213,6 +216,13 @@ def spawn_powerup():
 
 #main game loop
 while running:
+    current_time = pygame.time.get_ticks()
+
+    # Restore speed if slow effect duration is over
+    if slow_effect_active and current_time - slow_effect_start_time >= 10000: # 10 seconds
+        fps = normal_fps
+        slow_effect_active = False
+
     CLOCK.tick(fps)
 
     for event in pygame.event.get():
@@ -391,6 +401,12 @@ while running:
             score += 100  # Or any special effect
             if sound_effects_enabled:
                 eat_sound.play()
+             # Slow down the snake for 10 seconds
+            if not slow_effect_active:
+                normal_fps = fps  # save current fps
+                fps = max(5, fps // 2)  # slow speed, minimum 5 fps
+                slow_effect_active = True
+                slow_effect_start_time = current_time
 
 
     screen.fill(Black)
