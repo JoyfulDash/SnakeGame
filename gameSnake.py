@@ -29,7 +29,7 @@ White = (255, 255, 255)
 food_types = [
     {"color": (255, 0, 0), "score": 50},      # Red
     {"color": (255, 165, 0), "score": 30},    # Orange
-    {"color": ((0, 255, 0)), "score": 60}    # Green
+    {"color": ((255, 255, 0)), "score": 60}    # Yellow
 ]
 
 # Initialize current food type index
