@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 
-import pygame
-import random
-import sys
-import os
-import requests
+import pygame, random, sys, os, requests
 
 music_muted = False
 sound_effects_enabled = True
@@ -139,12 +135,76 @@ def game_over_zoom_in_animation():
 # Add a flag attribute to remember if animation ran
 game_over_zoom_in_animation.done = False
 
+#define mouse click handling
+def handle_mouse_click(x, y):
+    global state, selected_option, paused_option, music_muted, sound_effects_enabled, running, input_name, new_high_score, esc_rect
+    if state == "Menu":
+        for i, option in enumerate(menu_options):
+            text = font.render(option, True, White)
+            rect = text.get_rect(center=(width // 2, 150 + i * 40 + text.get_height() // 2))
+            if rect.collidepoint(x, y):
+                selected = option
+                if selected == "Play":
+                    state = "Playing"
+                    reset_game()
+                elif selected == "Leaderboard":
+                    state = "Leaderboard"
+                elif selected == "Credits":
+                    state = "Credits"
+                elif selected == "Exit":
+                    running = False
+
+    elif state == "Paused":
+        for i, option in enumerate(pause_menu_options):
+            text = pygame.font.SysFont(None, 36).render(option, True, White)
+            rect = text.get_rect(center=(width // 2, 150 + i * 40 + text.get_height() // 2))
+            if rect.collidepoint(x, y):
+                paused_option = i
+                if option == "Resume":
+                    for i in range(3, 0, -1):
+                        screen.fill(Black)
+                        countdown = font.render(str(i), True, White)
+                        screen.blit(countdown, (width // 2 - countdown.get_width() // 2, height // 2))
+                        pygame.display.update()
+                        pygame.time.delay(1000)
+                    state = "Playing"
+                elif option == "Toggle Sound Effects":
+                    sound_effects_enabled = not sound_effects_enabled
+                elif option == "Toggle Music":
+                    music_muted = not music_muted
+                    pygame.mixer.music.set_volume(0 if music_muted else 0.5)
+                elif option == "Main Menu":
+                    reset_game()
+                    state = "Menu"
+                    game_over_zoom_in_animation.done = False
+
+    elif state == "Leaderboard" or state == "Credits" or state == "GameOver" or state == "Leaderboard":
+        # ESC/Back to menu
+        esc_text = pygame.font.SysFont(None, 24).render("Press ESC to Return", True, Red)
+        esc_rect = esc_text.get_rect(center=(width // 2, height - 40))
+        if esc_rect.collidepoint(x, y):
+            state = "Menu"
+
+    elif state == "EnterName":
+        esc_text = pygame.font.SysFont(None, 24).render("Press ESC to Return", True, Red)
+        esc_rect = esc_text.get_rect(center=(width // 2, height - 40))
+        if esc_rect.collidepoint(x, y):
+            input_name = ""
+            new_high_score = False
+            state = "Menu"
+
+
+#main game loop
 while running:
     CLOCK.tick(fps)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
+        elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:  # Left click
+            mouse_x, mouse_y = event.pos
+            handle_mouse_click(mouse_x, mouse_y)
 
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_q and state != "EnterName":
@@ -159,8 +219,6 @@ while running:
                     pass
                 else:
                     running = False
-
-
             if event.key == pygame.K_m and state not in ("EnterName",):
                 music_muted = not music_muted
                 pygame.mixer.music.set_volume(0 if music_muted else 0.5)
@@ -283,14 +341,6 @@ while running:
 
             game_over = True
 
-            if is_new_high_score:
-                new_high_score = True
-                state = "EnterName"
-                input_name = ""
-            else:
-                state = "GameOver"
-                game_over_zoom_in_animation.done = False
-
         if new_head.colliderect(food):
             if sound_effects_enabled:
                 eat_sound.play()
@@ -318,8 +368,10 @@ while running:
         screen.blit(title, (width // 2 - title.get_width() // 2, 50))
         credit = pygame.font.SysFont(None, 32).render("Thanks for playing", True, Red)
         screen.blit(credit, (width // 2 - credit.get_width() // 2, height // 2))
-        esc = pygame.font.SysFont(None, 32).render("Press ESC to Return", True, White)
-        screen.blit(esc, (width // 2 - esc.get_width() // 2, height - 50))
+        #ESC clickable return
+        esc_text = pygame.font.SysFont(None, 24).render("Press ESC to Return", True, Red)
+        esc_rect = esc_text.get_rect(center=(width // 2, height - 40))
+        screen.blit(esc_text, esc_rect)
 
     elif state == "Paused":
         pause_title = font.render("Game Paused", True, Green)
@@ -360,8 +412,10 @@ while running:
         screen.blit(go_text, (width // 2 - go_text.get_width() // 2, 50))
         score_text = font.render(f"Score: {score}", True, White)
         screen.blit(score_text, (width // 2 - score_text.get_width() // 2, height // 2 - score_text.get_height() // 2))
-        retry_msg = pygame.font.SysFont(None, 24).render("Press Q for Main Menu", True, White)
-        screen.blit(retry_msg, (width // 2 - retry_msg.get_width() // 2, height - 50))
+        #ESC clickable return
+        esc_text = pygame.font.SysFont(None, 24).render("Press ESC to Return", True, Red)
+        esc_rect = esc_text.get_rect(center=(width // 2, height - 40))
+        screen.blit(esc_text, esc_rect)
 
     elif state == "Leaderboard":
         title = font.render("Leaderboard", True, Green)
@@ -370,21 +424,26 @@ while running:
         for i, (name, sc) in enumerate(leaderboard):
             entry_text = pygame.font.SysFont(None, 28).render(f"{i+1}. {name}: {sc}", True, White)
             screen.blit(entry_text, (width // 2 - entry_text.get_width() // 2, 70 + i * 30))
-        esc = pygame.font.SysFont(None, 24).render("Press ESC to Return", True, Red)
-        screen.blit(esc, (width // 2 - esc.get_width() // 2, height - 40))
+
+        #ESC clickable return
+        esc_text = pygame.font.SysFont(None, 24).render("Press ESC to Return", True, Red)
+        esc_rect = esc_text.get_rect(center=(width // 2, height - 40))
+        screen.blit(esc_text, esc_rect)
 
     elif state == "EnterName":
         prompt = font.render("New High Score! Enter your name:", True, Green)
         screen.blit(prompt, (width // 2 - prompt.get_width() // 2, 100))
-        
-        # Calculate blinking cursor
+
+        # Blinking cursor logic
         cursor_char = "|" if pygame.time.get_ticks() // 500 % 2 == 0 else ""
         name_with_cursor = input_name + cursor_char
         name_surface = font.render(name_with_cursor, True, White)
         screen.blit(name_surface, (width // 2 - name_surface.get_width() // 2, 150))
-        
-        esc = pygame.font.SysFont(None, 24).render("Press ESC to Cancel", True, White)
-        screen.blit(esc, (width // 2 - esc.get_width() // 2, height - 50))
+
+        # Draw ESC message only (no click detection here)
+        esc_text = pygame.font.SysFont(None, 24).render("Press ESC to Return", True, Red)
+        esc_rect = esc_text.get_rect(center=(width // 2, height - 40))
+        screen.blit(esc_text, esc_rect)
 
     pygame.display.update()
 
