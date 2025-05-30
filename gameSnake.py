@@ -12,6 +12,8 @@ slow_effect_active = False
 slow_effect_start_time = 0
 fps = 30
 normal_fps = fps # to keep track of normal speed
+active_powerup = None
+
 
 pygame.init()
 
@@ -40,12 +42,24 @@ food_types = [
 
 #powerups
 powerups = {
-    "rect": pygame.Rect(-100, -100, cellsize, cellsize), # Offscreen initially
-    "color": (0, 255, 255), # Cyan
-    "score": 0, # Score value for powerup
-    "duration": 7000, # 7 seconds
-    "active": False
+    "cyan": {
+        "rect": pygame.Rect(-100, -100, cellsize, cellsize),
+        "color": (0, 255, 255),  # Cyan
+        "score": 0,
+        "duration": 7000,
+        "active": False,
+        "effect": "slow"  # example effect, if any
+    },
+    "pink": {
+        "rect": pygame.Rect(-100, -100, cellsize, cellsize),
+        "color": (255, 105, 180),  # Pink
+        "score": 0,
+        "duration": 7000,
+        "active": False,
+        "effect": "bonus_points"
+    }
 }
+
 
 # Initialize current food type index
 current_food_type = random.choice(food_types)
@@ -70,6 +84,7 @@ fps = 10
 score = 0
 
 def update_speed():
+    global fps
     fps = 10 + (score // 1000) * 2
 
 def reset_game():
@@ -208,10 +223,14 @@ def handle_mouse_click(x, y):
 
 #spawn powerup
 def spawn_powerup():
-    powerups["rect"].x = random.randint(0, (width - cellsize) // cellsize) * cellsize
-    powerups["rect"].y = random.randint(0, (height - cellsize) // cellsize) * cellsize
-    powerups["spawn_time"] = pygame.time.get_ticks()
-    powerups["active"] = True
+    global active_powerup, last_powerup_time
+    active_powerup_key = random.choice(list(powerups.keys()))  # Pick a key string
+    active_powerup = powerups[active_powerup_key]             # Get the powerup dict
+    active_powerup["rect"].x = random.randint(0, (width - cellsize) // cellsize) * cellsize
+    active_powerup["rect"].y = random.randint(0, (height - cellsize) // cellsize) * cellsize
+    active_powerup["spawn_time"] = pygame.time.get_ticks()
+    active_powerup["active"] = True
+    last_powerup_time = active_powerup["spawn_time"]
 
 
 #main game loop
@@ -382,32 +401,29 @@ while running:
 
         current_time = pygame.time.get_ticks()
 
-        # Spawn powerup every 2 minutes if none active
-        if not powerups["active"] and current_time - last_powerup_time >= 120000:  # 2 minutes = 120,000 ms
+        if (not active_powerup or not active_powerup["active"]) and current_time - last_powerup_time >= 120000:
             spawn_powerup()
             last_powerup_time = current_time
 
-        # Hide powerup after duration
-        if powerups["active"] and current_time - powerups["spawn_time"] > powerups["duration"]:
-            powerups["active"] = False
-            powerups["rect"].x = -100  # Hide offscreen
-            last_powerup_time = current_time  # reset timer when powerup disappears
+        if active_powerup and active_powerup["active"] and current_time - active_powerup["spawn_time"] > active_powerup["duration"]:
+            active_powerup["active"] = False
+            active_powerup["rect"].x = -100
+            last_powerup_time = current_time
 
-        # Check collision with powerup
-        if powerups["active"] and player.colliderect(powerups["rect"]):
-            powerups["active"] = False
-            powerups["rect"].x = -100
-            # Bonus effect here — increase score or trigger effect
-            score += 100  # Or any special effect
+        if active_powerup and active_powerup["active"] and player.colliderect(active_powerup["rect"]):
+            active_powerup["active"] = False
+            active_powerup["rect"].x = -100
             if sound_effects_enabled:
                 eat_sound.play()
-             # Slow down the snake for 10 seconds
-            if not slow_effect_active:
-                normal_fps = fps  # save current fps
-                fps = max(5, fps // 2)  # slow speed, minimum 5 fps
+
+            if active_powerup["effect"] == "slow" and not slow_effect_active:
+                normal_fps = fps
+                fps = max(5, fps // 2)
                 slow_effect_active = True
                 slow_effect_start_time = current_time
 
+            elif active_powerup["effect"] == "bonus_points":
+                score += 150  # or any effect you like
 
     screen.fill(Black)
 
@@ -449,9 +465,11 @@ while running:
             pygame.draw.rect(screen, Green, segment)
         pygame.draw.rect(screen, current_food_type["color"], food)
 
-        # Draw powerup
-        if powerups["active"]:
-            pygame.draw.rect(screen, powerups["color"], powerups["rect"])
+        # Draw powerups if active
+        for key, pwr in powerups.items():
+            if pwr["active"]:
+                pygame.draw.rect(screen, pwr["color"], pwr["rect"])
+
 
         s_text = pygame.font.SysFont(None, 36).render(f"Score: {score}", True, White)
         screen.blit(s_text, (10, 10))
