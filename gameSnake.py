@@ -1,5 +1,6 @@
 #To-Do:
 # #reset powerup after death
+# add a message for new highest score
 # #!/usr/bin/env python3
 
 import pygame, random, sys, os, requests, time
@@ -441,7 +442,7 @@ while running:
     elif state == "Credits":
         title = font.render("Credits", True, Green)
         screen.blit(title, (width // 2 - title.get_width() // 2, 50))
-        credit = pygame.font.SysFont(None, 32).render("Thanks for playing", True, Red)
+        credit = pygame.font.SysFont(None, 32).render("Thanks for playing!", True, Red)
         screen.blit(credit, (width // 2 - credit.get_width() // 2, height // 2))
         #ESC clickable return
         esc_text = pygame.font.SysFont(None, 24).render("Press ESC to Return", True, Red)
