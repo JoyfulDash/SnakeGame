@@ -1,4 +1,5 @@
-#!/usr/bin/env python3
+#reset powerup after death
+# #!/usr/bin/env python3
 
 import pygame, random, sys, os, requests, time
 
