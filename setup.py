@@ -1,12 +1,10 @@
 from setuptools import setup
 
-APP = ['your_game.py']
-DATA_FILES = ['assets']  # or a list of specific assets
+APP = ['gamesnake.py']
+DATA_FILES = ['background.wav', 'death.wav', 'eat.wav']
 OPTIONS = {
     'argv_emulation': True,
     'packages': ['pygame'],
-    'includes': [],
-    'iconfile': 'assets/icon.icns'  # Optional: path to a .icns Mac icon file
 }
 
 setup(
