@@ -17,7 +17,6 @@ fps = 30
 normal_fps = fps # to keep track of normal speed
 active_powerup = None
 
-
 pygame.init()
 
 menu_options = ["Play", "Leaderboard", "Credits", "Exit"]
@@ -350,6 +349,15 @@ while running:
 
             elif state == "Leaderboard" and event.key == pygame.K_ESCAPE:
                 state = "Menu"
+            elif state == "GameOver" and event.key == pygame.K_ESCAPE:
+                if new_high_score:
+                    input_name = ""
+                    new_high_score = False
+                    state = "EnterName"
+                else:
+                    reset_game()
+                    state = "Menu"
+                    game_over_zoom_in_animation.done = False
 
             elif state == "EnterName":
                 if (event.key == pygame.K_RETURN or event.key == 1073741912) and input_name:
