@@ -60,6 +60,14 @@ powerups = {
         "duration": 7000,
         "active": False,
         "effect": "bonus_points"
+    },
+    "purple": {
+        "rect": pygame.Rect(-100, -100, cellsize, cellsize),
+        "color": (128, 0, 128),  # Purple
+        "score": 0,
+        "duration": 7000,
+        "active": False,
+        "effect": "shrink"
     }
 }
 
@@ -99,6 +107,16 @@ def reset_game():
     food.x = random.randint(0, (width - cellsize) // cellsize) * cellsize
     food.y = random.randint(0, (height - cellsize) // cellsize) * cellsize
     score = 0
+
+    # Reset powerups
+    for key in powerups:
+        powerups[key]["active"] = False
+        powerups[key]["rect"].x = -100  # Move off screen
+    active_powerup = None
+
+    # Reset slow effect and FPS
+    slow_effect_active = False
+    fps = normal_fps = 10  # or your default fps
 
 FIREBASE_DB_URL = "https://snake-game-leaderboard-31464-default-rtdb.firebaseio.com/"
 
@@ -426,7 +444,13 @@ while running:
                 slow_effect_start_time = current_time
 
             elif active_powerup["effect"] == "bonus_points":
-                score += 150  # or any effect you like
+                score += 150  # Plus 150 points
+            
+            elif active_powerup["effect"] == "shrink":
+                shrink_amount = max(1, len(snake) // 3)  # remove 1/3 or at least 1 segment
+                for _ in range(shrink_amount):
+                    if len(snake) > 1:
+                        snake.pop()
 
     screen.fill(Black)
 
