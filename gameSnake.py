@@ -1,5 +1,5 @@
 #To-Do:
-# #reset powerup after death
+# #reset powerup after death. Or maybe it's powerup timer start after pressing play?
 # add a message for new highest score
 # #!/usr/bin/env python3
 
