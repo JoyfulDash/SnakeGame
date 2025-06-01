@@ -1,3 +1,5 @@
+# To-Do:
+# Esc key not working on Game Over screen if no record broken
 # #!/usr/bin/env python3
 
 import pygame, random, sys, os, requests, time
