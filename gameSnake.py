@@ -1,5 +1,6 @@
-#To-Do:
-# add a message for new highest score
+# To-Do:
+# Esc key not working on Game Over screen if no record broken
+#need a highest score message
 # #!/usr/bin/env python3
 
 import pygame, random, sys, os, requests, time
@@ -70,7 +71,6 @@ powerups = {
     }
 }
 
-
 # Initialize current food type index
 current_food_type = random.choice(food_types)
 
@@ -99,8 +99,6 @@ def update_speed():
 
 def reset_game():
     global snake, player, direction, next_direction, food, score
-    global active_powerup, last_powerup_time, slow_effect_active, fps, normal_fps
-
     player = pygame.Rect(300, 200, cellsize, cellsize)
     snake = [player.copy()]
     direction = "right"
@@ -113,10 +111,8 @@ def reset_game():
     for key in powerups:
         powerups[key]["active"] = False
         powerups[key]["rect"].x = -100  # Move off screen
-
     active_powerup = None
-    last_powerup_time = pygame.time.get_ticks() #reset timer so one doesn't spawn immediately
-    
+
     # Reset slow effect and FPS
     slow_effect_active = False
     fps = normal_fps = 10  # or your default fps
@@ -230,16 +226,12 @@ def handle_mouse_click(x, y):
                     state = "Menu"
                     game_over_zoom_in_animation.done = False
 
-    elif state in ("Leaderboard", "Credits", "GameOver"):
+    elif state == "Leaderboard" or state == "Credits" or state == "GameOver" or state == "Leaderboard":
+        # ESC/Back to menu
         esc_text = pygame.font.SysFont(None, 24).render("Press ESC to Return", True, Red)
         esc_rect = esc_text.get_rect(center=(width // 2, height - 40))
         if esc_rect.collidepoint(x, y):
-            if state == "GameOver" and new_high_score:
-                # Do nothing or keep in EnterName state
-                pass
-            else:
-                state = "Menu"
-                new_high_score = False  # reset flag when returning
+            state = "Menu"
 
     elif state == "EnterName":
         esc_text = pygame.font.SysFont(None, 24).render("Press ESC to Return", True, Red)
@@ -260,30 +252,6 @@ def spawn_powerup():
     active_powerup["active"] = True
     last_powerup_time = active_powerup["spawn_time"]
 
-def apply_powerup(effect):
-    global slow_effect_active, fps, slow_effect_start_time, normal_fps, score, snake
-
-    if effect == "slow":
-        if not slow_effect_active:
-            normal_fps = fps
-            fps = max(5, fps // 2)
-            slow_effect_active = True
-            slow_effect_start_time = pygame.time.get_ticks()
-
-    elif effect == "bonus_points":
-        score += 150
-
-    elif effect == "shrink":
-        shrink_amount = max(1, len(snake) // 3)
-        for _ in range(shrink_amount):
-            if len(snake) > 1:
-                snake.pop()
-
-# Function to draw text centered on the screen
-def draw_text_center(text, font, color, y_offset=0):
-    rendered = font.render(text, True, color)
-    screen.blit(rendered, (width // 2 - rendered.get_width() // 2, height // 2 + y_offset))
-    return rendered
 
 #main game loop
 while running:
@@ -396,13 +364,6 @@ while running:
                     input_name = ""
                     new_high_score = False
                     state = "Menu"
-            elif state == "GameOver":
-                if event.key == pygame.K_ESCAPE:
-                    if not new_high_score:
-                        reset_game()
-                        state = "Menu"
-                        game_over = False
-                        game_over_zoom_in_animation.done = False
                 else:
                     if len(input_name) < 10:
                         char = event.unicode
@@ -464,19 +425,12 @@ while running:
             spawn_powerup()
             last_powerup_time = current_time
 
-        if active_powerup and active_powerup["active"]:
-            if current_time - active_powerup["spawn_time"] >= active_powerup["duration"]:
-                active_powerup["active"] = False
-                active_powerup["rect"].x = -100
+        if active_powerup and active_powerup["active"] and current_time - active_powerup["spawn_time"] > active_powerup["duration"]:
+            active_powerup["active"] = False
+            active_powerup["rect"].x = -100
             last_powerup_time = current_time
 
-        if active_powerup and active_powerup["active"] and new_head.colliderect(active_powerup["rect"]):
-            effect = active_powerup["effect"]
-            if effect == "slow":
-                fps = 5
-                slow_effect_active = True
-                slow_effect_start_time = pygame.time.get_ticks()
-
+        if active_powerup and active_powerup["active"] and player.colliderect(active_powerup["rect"]):
             active_powerup["active"] = False
             active_powerup["rect"].x = -100
             if sound_effects_enabled:
@@ -562,16 +516,8 @@ while running:
         game_over_font = pygame.font.SysFont(None, 60)
         go_text = game_over_font.render("Game Over", True, Red)
         screen.blit(go_text, (width // 2 - go_text.get_width() // 2, 50))
-        
         score_text = font.render(f"Score: {score}", True, White)
-        screen.blit(score_text, (width // 2 - score_text.get_width() // 2, 150))
-        
-        # New highest score message
-        if new_high_score:
-            high_score_font = pygame.font.SysFont(None, 36)
-            new_score_msg = high_score_font.render("New Highest Score! Enter your name.", True, Green)
-            screen.blit(new_score_msg, (width // 2 - new_score_msg.get_width() // 2, 200))
-
+        screen.blit(score_text, (width // 2 - score_text.get_width() // 2, height // 2 - score_text.get_height() // 2))
         #ESC clickable return
         esc_text = pygame.font.SysFont(None, 24).render("Press ESC to Return", True, Red)
         esc_rect = esc_text.get_rect(center=(width // 2, height - 40))
