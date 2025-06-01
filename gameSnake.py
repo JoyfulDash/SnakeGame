@@ -44,6 +44,22 @@ food_types = [
 
 #powerups
 powerups = {
+    "cyan": {
+        "rect": pygame.Rect(-100, -100, cellsize, cellsize),
+        "color": (0, 255, 255),  # Cyan
+        "score": 0,
+        "duration": 7000,
+        "active": False,
+        "effect": "slow"  # example effect, if any
+    },
+    "pink": {
+        "rect": pygame.Rect(-100, -100, cellsize, cellsize),
+        "color": (255, 105, 180),  # Pink
+        "score": 0,
+        "duration": 7000,
+        "active": False,
+        "effect": "bonus_points"
+    },
     "purple": {
         "rect": pygame.Rect(-100, -100, cellsize, cellsize),
         "color": (128, 0, 128),  # Purple
