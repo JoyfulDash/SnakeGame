@@ -1,6 +1,3 @@
-#To-Do:
-# #reset powerup after death
-# add a message for new highest score
 # #!/usr/bin/env python3
 
 import pygame, random, sys, os, requests, time
