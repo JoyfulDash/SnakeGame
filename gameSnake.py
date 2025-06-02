@@ -1,6 +1,6 @@
 # To-Do:
-# Esc key not working on Game Over screen if no record broken
-#need a highest score message
+# Ensure powerup don't spawn in the beginning
+# Add high score at the top
 # #!/usr/bin/env python3
 
 import pygame, random, sys, os, requests, time
@@ -16,6 +16,7 @@ slow_effect_start_time = 0
 fps = 30
 normal_fps = fps # to keep track of normal speed
 active_powerup = None
+new_all_time_high_score = False
 
 pygame.init()
 
@@ -402,8 +403,13 @@ while running:
             game_over = True
 
             leaderboard = load_leaderboard()
+            highest_score = get_highest_score()
+            is_new_high_score = check_high_score(score)
+            new_all_time_high_score = score > highest_score
+
             scores = [s for _, s in leaderboard]
             is_new_high_score = check_high_score(score)
+            new_all_time_high_score = score > highest_score
 
             if is_new_high_score:
                 new_high_score = True
@@ -545,7 +551,15 @@ while running:
         screen.blit(esc_text, esc_rect)
 
     elif state == "EnterName":
-        prompt = font.render("New High Score! Enter your name:", True, Green)
+        if new_all_time_high_score:
+            prompt_text = "New All-Time Score! Enter your name:"
+            prompt_color = Red
+        else:
+            prompt_text = "New High Score! Enter your name:"
+            prompt_color = Green  # fallback color if Red is only for all-time high
+
+        # Render the prompt (now using the corrected string and color)
+        prompt = font.render(prompt_text, True, prompt_color)
         screen.blit(prompt, (width // 2 - prompt.get_width() // 2, 100))
 
         # Blinking cursor logic
