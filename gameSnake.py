@@ -510,9 +510,18 @@ while running:
             if pwr["active"]:
                 pygame.draw.rect(screen, pwr["color"], pwr["rect"])
 
+        # Create a smaller font for scores (size 24)
+        score_font = pygame.font.SysFont(None, 24)
 
-        s_text = pygame.font.SysFont(None, 36).render(f"Score: {score}", True, White)
-        screen.blit(s_text, (10, 10))
+        # Draw current score
+        score_text = score_font.render(f"Score: {score}", True, White)
+        screen.blit(score_text, (10, 30))  # Adjust Y if needed
+
+        # Draw high score
+        high_score_text = score_font.render(f"High Score: {highest_score}", True, Green)
+        screen.blit(high_score_text, (10, 10))
+
+
         mute_status = pygame.font.SysFont(None, 24).render("Muted" if music_muted else "Press M to Mute", True, White)
         screen.blit(mute_status, (width - mute_status.get_width() - 10, 10))
         pause_status = pygame.font.SysFont(None, 24).render("Press P to Pause", True, White)
