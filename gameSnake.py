@@ -1,8 +1,6 @@
 # To-Do:
 # Ensure powerup don't spawn in the beginning
 # Ensure when pause, powerup timer stops
-# Verify internet failure sync score works
-# Figure out a way to do updates through the menu
 # #!/usr/bin/env python3
 
 import pygame, random, sys, os, requests, time, subprocess
