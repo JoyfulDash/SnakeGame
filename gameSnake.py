@@ -1,10 +1,9 @@
 # To-Do:
 # Ensure powerup don't spawn in the beginning
 # Ensure when pause, powerup timer stops
-# Local copy so that if internet is down, it still saves highscore and then uploads it when back online
 # #!/usr/bin/env python3
 
-import pygame, random, sys, os, requests, time
+import pygame, random, sys, os, requests, time, subprocess
 
 # Global variables
 music_muted = False
@@ -21,7 +20,7 @@ new_all_time_high_score = False
 
 pygame.init()
 
-menu_options = ["Play", "Leaderboard", "Credits", "Exit"]
+menu_options = ["Play", "Leaderboard", "Update Game", "Credits", "Exit"]
 selected_option = 0
 state = "Menu"
 input_name = ""
@@ -139,6 +138,41 @@ def update_leaderboard(name, new_score):
             requests.post(f"{FIREBASE_DB_URL}/scores.json", json=data)
         except Exception as e:
             print("Failed to update leaderboard:", e)
+            save_pending_score(name, new_score) #save locally if network fails
+            show_message("Network error! Score saved locally.")
+# Function to save pending score locally
+def save_pending_score(name, score):
+    try:
+        with open("pending_score.txt", "a") as file:
+            file.write(f"{name},{score}\n")
+    except Exception as e:
+        print("Failed to save pending score:", e)
+
+def sync_pending_scores():
+    if not os.path.exists("pending_score.txt"):
+        return
+    try:
+        with open("pending_score.txt", "r") as file:
+            lines = file.readlines()
+        os.remove("pending_score.txt")  # Clear the file after reading
+        for line in lines:
+            name, score = line.strip().split(",")
+            update_leaderboard(name, int(score)) #retry upload
+    except Exception as e:
+        print("Failed to sync pending scores:", e)
+
+def show_message(message, duration=2000):
+    overlay = pygame.Surface((width, height), pygame.SRCALPHA)
+    overlay.fill((0, 0, 0, 180))  # semi-transparent background
+    screen.blit(overlay, (0, 0))
+
+    message_text = font.render(message, True, White)
+    screen.blit(
+        message_text,
+        (width // 2 - message_text.get_width() // 2, height // 2)
+    )
+    pygame.display.update()
+    pygame.time.delay(duration)
 
 def check_high_score(new_score):
     leaderboard = load_leaderboard()
@@ -162,6 +196,9 @@ death_sound = pygame.mixer.Sound(os.path.join(base_dir, "death.wav"))
 pygame.mixer.music.load(background_music_path)
 pygame.mixer.music.set_volume(0.5)
 pygame.mixer.music.play(-1)
+
+# Sync pending scores at the start
+sync_pending_scores()
 
 running = True
 game_over = False
@@ -203,6 +240,44 @@ def draw_game():
     score_text = font.render(f"Score: {score}", True, White)
     screen.blit(score_text, (10, 10))
 
+def update_game():
+    global state
+    state = "Updating"
+    
+    # Draw "Updating..." message
+    screen.fill(Black)
+    text = font.render("Updating...", True, White)
+    screen.blit(text, (width // 2 - text.get_width() // 2, height // 2))
+    pygame.display.update()
+
+    try:
+        result = subprocess.run(["git", "pull"], capture_output=True, text=True)
+        output = result.stdout.strip()
+
+        pygame.time.delay(1000)
+
+        # Display result on screen
+        screen.fill(Black)
+        update_result = "Game is already up to date." if "Already up to date." in output else "Update successful!"
+        text = font.render(update_result, True, White)
+        screen.blit(text, (width // 2 - text.get_width() // 2, height // 2))
+        pygame.display.update()
+
+        pygame.time.delay(2000)
+
+        # Restart the game
+        os.execv(sys.executable, ['python'] + sys.argv)
+
+    except Exception as e:
+        error_text = font.render("Update failed!", True, Red)
+        screen.fill(Black)
+        screen.blit(error_text, (width // 2 - error_text.get_width() // 2, height // 2))
+        pygame.display.update()
+        print(f"Update error: {e}")
+        pygame.time.delay(2000)
+        state = "Menu"  # Return to menu if update fails
+
+
 
 #define mouse click handling
 def handle_mouse_click(x, y):
@@ -218,6 +293,8 @@ def handle_mouse_click(x, y):
                     reset_game()
                 elif selected == "Leaderboard":
                     state = "Leaderboard"
+                elif selected == "Update Game":
+                    update_game()
                 elif selected == "Credits":
                     state = "Credits"
                 elif selected == "Exit":
@@ -333,6 +410,8 @@ while running:
                         game_over_zoom_in_animation.done = False
                     elif selected == "Leaderboard":
                         state = "Leaderboard"
+                    elif selected == "Update Game":
+                        update_game()
                     elif selected == "Credits":
                         state = "Credits"
                     elif selected == "Exit":
