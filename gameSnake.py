@@ -1,6 +1,7 @@
 # To-Do:
 # Ensure powerup don't spawn in the beginning
-# Add high score at the top
+# Ensure when pause, powerup timer stops
+# Local copy so that if internet is down, it still saves highscore and then uploads it when back online
 # #!/usr/bin/env python3
 
 import pygame, random, sys, os, requests, time
@@ -183,6 +184,26 @@ def game_over_zoom_in_animation():
 # Add a flag attribute to remember if animation ran
 game_over_zoom_in_animation.done = False
 
+# Function to draw the game state
+def draw_game():
+    screen.fill(Black)
+
+    # Draw food
+    pygame.draw.rect(screen, current_food_type["color"], food)
+
+    # Draw snake
+    for segment in snake:
+        pygame.draw.rect(screen, Green, segment)
+
+    # Draw powerups
+    for powerup in powerups.values():
+        pygame.draw.rect(screen, powerup["color"], powerup["rect"])
+
+    # Draw score
+    score_text = font.render(f"Score: {score}", True, White)
+    screen.blit(score_text, (10, 10))
+
+
 #define mouse click handling
 def handle_mouse_click(x, y):
     global state, selected_option, paused_option, music_muted, sound_effects_enabled, running, input_name, new_high_score, esc_rect
@@ -203,14 +224,19 @@ def handle_mouse_click(x, y):
                     running = False
 
     elif state == "Paused":
+        #render pause menu options
         for i, option in enumerate(pause_menu_options):
             text = pygame.font.SysFont(None, 36).render(option, True, White)
             rect = text.get_rect(center=(width // 2, 150 + i * 40 + text.get_height() // 2))
+            screen.blit(text, rect)
+
+            #handle clicks
             if rect.collidepoint(x, y):
                 paused_option = i
                 if option == "Resume":
                     for i in range(3, 0, -1):
-                        screen.fill(Black)
+
+                        #draw countdown
                         countdown = font.render(str(i), True, White)
                         screen.blit(countdown, (width // 2 - countdown.get_width() // 2, height // 2))
                         pygame.display.update()
@@ -251,7 +277,6 @@ def spawn_powerup():
     active_powerup["spawn_time"] = pygame.time.get_ticks()
     active_powerup["active"] = True
     last_powerup_time = active_powerup["spawn_time"]
-
 
 #main game loop
 while running:
@@ -329,7 +354,14 @@ while running:
                     selected = pause_menu_options[paused_option]
                     if selected == "Resume":
                         for i in range (3, 0, -1):
-                            screen.fill(Black)
+
+                            draw_game()  # Draw current game scene
+
+                            #create a semi-transparent pause menu
+                            overlay = pygame.Surface((width, height), pygame.SRCALPHA)
+                            overlay.fill((0, 0, 0, 150))  # Semi-transparent black
+                            screen.blit(overlay, (0, 0))
+
                             countdown = font.render(str(i), True, White)
                             screen.blit(countdown, (width // 2 - countdown.get_width() // 2, height // 2))
                             pygame.display.update()
