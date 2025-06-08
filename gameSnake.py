@@ -235,8 +235,13 @@ def handle_mouse_click(x, y):
                 paused_option = i
                 if option == "Resume":
                     for i in range(3, 0, -1):
+                        draw_game()  # Draw current game scene
 
-                        #draw countdown
+                        #create a semi-transparent pause menu
+                        overlay = pygame.Surface((width, height), pygame.SRCALPHA)
+                        overlay.fill((0, 0, 0, 150))  # Semi-transparent black
+                        screen.blit(overlay, (0, 0))
+
                         countdown = font.render(str(i), True, White)
                         screen.blit(countdown, (width // 2 - countdown.get_width() // 2, height // 2))
                         pygame.display.update()
