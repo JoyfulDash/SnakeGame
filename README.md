@@ -1,62 +1,28 @@
-Snake Game 🐍 (Python + Pygame)
-Description
+Snake Game 🐍 with Pygame in Python
+
+Description:
 A classic Snake game built from scratch using Python and Pygame.
 The player controls a snake that grows longer as it eats food.
-The goal is to survive as long as possible without colliding with yourself or the walls.
+The goal is to survive as long as possible without colliding with yourself.
 
-Currently under development: adding a main menu, leaderboard, and background music!
+Features:
+1. Classic snake gameplay.
+2. Increasing difficulty as the snake eats more food.
+3. Game Over screen when the player loses.
+4. Sounds effect and background music.
+5. Global leaderboard for all players.
+6. Powerups that last 10 seconds.
 
-Features
-Classic snake gameplay 🐍
+How to Run:
+1. Ensure you have git installed in your computer.
+2. git clone https://github.com/JoyfulDash/SnakeGame.git
+3. pip3 install pygame
+4. pip3 install requests
+5. cd SnakeGame
+6. python3 gameSnake.py
 
-Increasing difficulty as the snake eats more food 🍎
+If you want to make it an executable run this:
+1. chmod +x gameSnake.py
 
-Game Over screen when the player loses 💀
-
-Currently working on:
-
-Main Menu (Start, Leaderboard, Credits, Exit)
-
-Progressive speed increase
-
-Background music 🎶
-
-Technologies Used
-Python 3
-
-Pygame
-
-How to Run
-Clone this repository:
-
-bash
-Copy code
-git clone [https://github.com/PapusProgramming/GameSnakePapu.git]
-Navigate into the project folder:
-
-bash
-Copy code
-cd GameSnakePapu
-Install the required dependencies:
-
-nginx
-Copy code
-pip install pygame
-Run the game:
-
-css
-Copiar código
-python main.py
-Future Plans
-Add sound effects and music
-
-Improve graphics and animations
-
-Create a web version using Pygame.js or other frameworks
-
-Polish the UI and menus
-
-Add high score saving system
-
-Contact
-Feel free to connect with me on LinkedIn or check out more projects on GitHub!
+Now you can run like this:
+1. ./gameSnake.py
