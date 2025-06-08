@@ -412,6 +412,8 @@ while running:
                         game_over_zoom_in_animation.done = False
                     elif selected == "Leaderboard":
                         state = "Leaderboard"
+                    elif selected == "Update Game":
+                        update_game()
                     elif selected == "Credits":
                         state = "Credits"
                     elif selected == "Exit":
