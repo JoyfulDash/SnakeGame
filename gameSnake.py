@@ -1,7 +1,7 @@
 # To-Do:
 # Ensure powerup don't spawn in the beginning
 # Ensure when pause, powerup timer stops
-# Local copy so that if internet is down, it still saves highscore and then uploads it when back online
+# Verify internet failure sync score works
 # #!/usr/bin/env python3
 
 import pygame, random, sys, os, requests, time
@@ -139,6 +139,41 @@ def update_leaderboard(name, new_score):
             requests.post(f"{FIREBASE_DB_URL}/scores.json", json=data)
         except Exception as e:
             print("Failed to update leaderboard:", e)
+            save_pending_score(name, new_score) #save locally if network fails
+            show_message("Network error! Score saved locally.")
+# Function to save pending score locally
+def save_pending_score(name, score):
+    try:
+        with open("pending_score.txt", "a") as file:
+            file.write(f"{name},{score}\n")
+    except Exception as e:
+        print("Failed to save pending score:", e)
+
+def sync_pending_scores():
+    if not os.path.exists("pending_score.txt"):
+        return
+    try:
+        with open("pending_score.txt", "r") as file:
+            lines = file.readlines()
+        os.remove("pending_score.txt")  # Clear the file after reading
+        for line in lines:
+            name, score = line.strip().split(",")
+            update_leaderboard(name, int(score)) #retry upload
+    except Exception as e:
+        print("Failed to sync pending scores:", e)
+
+def show_message(message, duration=2000):
+    overlay = pygame.Surface((width, height), pygame.SRCALPHA)
+    overlay.fill((0, 0, 0, 180))  # semi-transparent background
+    screen.blit(overlay, (0, 0))
+
+    message_text = font.render(message, True, White)
+    screen.blit(
+        message_text,
+        (width // 2 - message_text.get_width() // 2, height // 2)
+    )
+    pygame.display.update()
+    pygame.time.delay(duration)
 
 def check_high_score(new_score):
     leaderboard = load_leaderboard()
@@ -162,6 +197,9 @@ death_sound = pygame.mixer.Sound(os.path.join(base_dir, "death.wav"))
 pygame.mixer.music.load(background_music_path)
 pygame.mixer.music.set_volume(0.5)
 pygame.mixer.music.play(-1)
+
+# Sync pending scores at the start
+sync_pending_scores()
 
 running = True
 game_over = False
