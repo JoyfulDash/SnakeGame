@@ -3,6 +3,7 @@
 # Ensure powerup don't spawn in the beginning
 # Ensure when pause, powerup timer stops
 
+
 import pygame, random, sys, os, requests, time, subprocess
 
 # Global variables
