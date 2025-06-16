@@ -193,6 +193,7 @@ base_dir = os.path.dirname(os.path.abspath(__file__))
 background_music_path = os.path.join(base_dir, "background.wav")
 eat_sound = pygame.mixer.Sound(os.path.join(base_dir, "eat.wav"))
 death_sound = pygame.mixer.Sound(os.path.join(base_dir, "death.wav"))
+highscore_sound = pygame.mixer.Sound(os.path.join(base_dir, "highscore.wav"))
 
 pygame.mixer.music.load(background_music_path)
 pygame.mixer.music.set_volume(0.5)
