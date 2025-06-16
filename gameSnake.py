@@ -246,7 +246,7 @@ def update_game():
     global state
     state = "Updating"
 
-    repo_dir = "/absolute/path/to/your/cloned/repo"  # Replace this with actual path
+    repo_dir = os.path.dirname(os.path.abspath(__file__))
 
     screen.fill(Black)
     text = font.render("Updating...", True, White)
