@@ -245,20 +245,25 @@ def draw_game():
 def update_game():
     global state
     state = "Updating"
-    
-    # Draw "Updating..." message
+
+    repo_dir = "/absolute/path/to/your/cloned/repo"  # Replace this with actual path
+
     screen.fill(Black)
     text = font.render("Updating...", True, White)
     screen.blit(text, (width // 2 - text.get_width() // 2, height // 2))
     pygame.display.update()
 
     try:
-        result = subprocess.run(["git", "pull"], capture_output=True, text=True)
-        output = result.stdout.strip()
+        print("Changing directory to:", repo_dir)
+        os.chdir(repo_dir)
 
+        result = subprocess.run(["git", "pull"], capture_output=True, text=True)
+        print("Git stdout:", result.stdout)
+        print("Git stderr:", result.stderr)
+
+        output = result.stdout.strip()
         pygame.time.delay(1000)
 
-        # Display result on screen
         screen.fill(Black)
         update_result = "Game is already up to date." if "Already up to date." in output else "Update successful!"
         text = font.render(update_result, True, White)
@@ -267,8 +272,8 @@ def update_game():
 
         pygame.time.delay(2000)
 
-        # Restart the game
-        os.execv(sys.executable, ['python'] + sys.argv)
+        # Restart script — only works if you're running from repo
+        os.execv(sys.executable, ['python'] + [os.path.abspath(__file__)])
 
     except Exception as e:
         error_text = font.render("Update failed!", True, Red)
@@ -277,9 +282,7 @@ def update_game():
         pygame.display.update()
         print(f"Update error: {e}")
         pygame.time.delay(2000)
-        state = "Menu"  # Return to menu if update fails
-
-
+        state = "Menu"
 
 #define mouse click handling
 def handle_mouse_click(x, y):
