@@ -39,7 +39,7 @@ White = (255, 255, 255)
 
 # Food types: color and score value
 food_types = [
-    {"color": (255, 0, 0), "score": 50},      # Red
+    {"color": (255, 0, 0), "score": 500},      # Red
     {"color": (255, 165, 0), "score": 30},    # Orange
     {"color": ((255, 255, 0)), "score": 60}    # Yellow
 ]
@@ -193,6 +193,7 @@ base_dir = os.path.dirname(os.path.abspath(__file__))
 background_music_path = os.path.join(base_dir, "background.wav")
 eat_sound = pygame.mixer.Sound(os.path.join(base_dir, "eat.wav"))
 death_sound = pygame.mixer.Sound(os.path.join(base_dir, "death.wav"))
+highscore_sound = pygame.mixer.Sound(os.path.join(base_dir, "highscore.wav"))
 
 pygame.mixer.music.load(background_music_path)
 pygame.mixer.music.set_volume(0.5)
@@ -545,6 +546,14 @@ while running:
             food.x = random.randint(0, (width - cellsize) // cellsize) * cellsize
             food.y = random.randint(0, (height - cellsize) // cellsize) * cellsize
             current_food_type = random.choice(food_types)
+            
+            # check if score is a new high score to play sound
+            if score > highest_score and not new_all_time_high_score:
+                if sound_effects_enabled:
+                    highscore_sound.play()
+                new_all_time_high_score = True
+                highest_score = score
+
         else:
             snake.pop()
 
