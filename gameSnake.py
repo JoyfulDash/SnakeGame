@@ -39,7 +39,7 @@ White = (255, 255, 255)
 
 # Food types: color and score value
 food_types = [
-    {"color": (255, 0, 0), "score": 500},      # Red
+    {"color": (255, 0, 0), "score": 50},      # Red
     {"color": (255, 165, 0), "score": 30},    # Orange
     {"color": ((255, 255, 0)), "score": 60}    # Yellow
 ]
