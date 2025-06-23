@@ -2,7 +2,6 @@
 # To-Do:
 # Ensure powerup don't spawn in the beginning
 # Ensure when pause, powerup timer stops
-#test after adding new code 2
 
 import pygame, random, sys, os, requests, time, subprocess
 
