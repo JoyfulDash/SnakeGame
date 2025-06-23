@@ -2,7 +2,7 @@
 # To-Do:
 # Ensure powerup don't spawn in the beginning
 # Ensure when pause, powerup timer stops
-#test after adding new code
+#test after adding new code 2
 
 import pygame, random, sys, os, requests, time, subprocess
 
@@ -279,11 +279,12 @@ def update_game():
 
         pygame.time.delay(2000)
 
-        # Restart the script
-        os.execv(sys.executable, ['python'] + [os.path.abspath(__file__)])
+        # ✅ Make the game script executable BEFORE restarting
+        game_file = os.path.join(repo_dir, "gameSnake.py")
+        subprocess.run(["chmod", "+x", game_file], check=True)
 
-        # Make the game script executable
-        subprocess.run(["chmod", "+x", "gameSnake.py"], check=True)
+        # ✅ Now restart the script
+        os.execv(sys.executable, ['python'] + [os.path.abspath(__file__)])
 
     except Exception as e:
         error_text = font.render("Update failed!", True, Red)
@@ -293,6 +294,7 @@ def update_game():
         print(f"Update error: {e}")
         pygame.time.delay(2000)
         state = "Menu"
+
 
 #define mouse click handling
 def handle_mouse_click(x, y):
