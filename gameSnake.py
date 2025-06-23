@@ -281,7 +281,13 @@ def update_game():
 
         # ✅ Make the game script executable BEFORE restarting
         game_file = os.path.join(repo_dir, "gameSnake.py")
-        subprocess.run(["chmod", "+x", game_file], check=True)
+        try:
+            subprocess.run(["chmod", "+x", game_file], check=True)
+            print(f"chmod +x succeeded for {game_file}")
+        except subprocess.CalledProcessError as chmod_error:
+            print(f"chmod +x failed for {game_file}: {chmod_error}")
+        except Exception as e:
+            print(f"Unexpected error while setting executable permission: {e}")
 
         # ✅ Now restart the script
         os.execv(sys.executable, ['python'] + [os.path.abspath(__file__)])
