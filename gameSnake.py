@@ -270,9 +270,6 @@ def update_game():
         output = result.stdout.strip()
         pygame.time.delay(1000)
 
-        # Make the game script executable
-        subprocess.run(["chmod", "+x", "gameSnake.py"], check=True)
-
         screen.fill(Black)
         update_result = "Game is already up to date." if "HEAD is now at" in output else "Update successful!"
         text = font.render(update_result, True, White)
@@ -283,6 +280,9 @@ def update_game():
 
         # Restart the script
         os.execv(sys.executable, ['python'] + [os.path.abspath(__file__)])
+
+        # Make the game script executable
+        subprocess.run(["chmod", "+x", "gameSnake.py"], check=True)
 
     except Exception as e:
         error_text = font.render("Update failed!", True, Red)
