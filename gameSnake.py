@@ -257,7 +257,14 @@ def update_game():
         print("Changing directory to:", repo_dir)
         os.chdir(repo_dir)
 
-        result = subprocess.run(["git", "pull"], capture_output=True, text=True)
+        # Step 1: Hard reset any local changes
+        subprocess.run(["git", "reset", "--hard"], check=True)
+
+        # Step 2: Fetch latest from origin
+        subprocess.run(["git", "fetch", "origin"], check=True)
+
+        # Step 3: Hard reset to origin/main
+        result = subprocess.run(["git", "reset", "--hard", "origin/main"], capture_output=True, text=True)
         print("Git stdout:", result.stdout)
         print("Git stderr:", result.stderr)
 
@@ -265,14 +272,14 @@ def update_game():
         pygame.time.delay(1000)
 
         screen.fill(Black)
-        update_result = "Game is already up to date." if "Already up to date." in output else "Update successful!"
+        update_result = "Game is already up to date." if "HEAD is now at" in output else "Update successful!"
         text = font.render(update_result, True, White)
         screen.blit(text, (width // 2 - text.get_width() // 2, height // 2))
         pygame.display.update()
 
         pygame.time.delay(2000)
 
-        # Restart script — only works if you're running from repo
+        # Restart the script
         os.execv(sys.executable, ['python'] + [os.path.abspath(__file__)])
 
     except Exception as e:
@@ -283,6 +290,7 @@ def update_game():
         print(f"Update error: {e}")
         pygame.time.delay(2000)
         state = "Menu"
+
 
 #define mouse click handling
 def handle_mouse_click(x, y):
