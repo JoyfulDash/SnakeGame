@@ -498,6 +498,12 @@ while running:
                     state = "Menu"
                     game_over_zoom_in_animation.done = False
 
+            elif state == "GameOver" and event.key == pygame.K_SPACE:
+                reset_game()
+                state = "Playing"
+                game_over = False
+                game_over_zoom_in_animation.done = False
+
             elif state == "EnterName":
                 if (event.key == pygame.K_RETURN or event.key == 1073741912) and input_name:
                     update_leaderboard(input_name, score)
@@ -687,10 +693,16 @@ while running:
         screen.blit(go_text, (width // 2 - go_text.get_width() // 2, 50))
         score_text = font.render(f"Score: {score}", True, White)
         screen.blit(score_text, (width // 2 - score_text.get_width() // 2, height // 2 - score_text.get_height() // 2))
+        
         #ESC clickable return
         esc_text = pygame.font.SysFont(None, 24).render("Press ESC to Return", True, Red)
         esc_rect = esc_text.get_rect(center=(width // 2, height - 40))
         screen.blit(esc_text, esc_rect)
+
+        # Draw "Press PSACE to play again" message
+        space_text = pygame.font.SysFont(None, 24).render("Press SPACE to Play Again", True, White)
+        space_rect = space_text.get_rect(center=(width // 2, height - 70))
+        screen.blit(space_text, space_rect)
 
     elif state == "Leaderboard":
         title = font.render("Leaderboard", True, Green)
