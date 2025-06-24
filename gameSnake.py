@@ -17,7 +17,6 @@ fps = 30
 normal_fps = fps # to keep track of normal speed
 active_powerup = None
 new_all_time_high_score = False
-
 pygame.init()
 
 menu_options = ["Play", "Leaderboard", "Update Game", "Credits", "Exit"]
@@ -28,6 +27,7 @@ name_enter_active = False
 new_high_score = False
 cellsize = 20
 width, height = 600, 400
+separator_y = 40
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Snake Game")
 
@@ -74,7 +74,7 @@ powerups = {
 # Initialize current food type index
 current_food_type = random.choice(food_types)
 
-player = pygame.Rect(300, 200, cellsize, cellsize)
+player = pygame.Rect(300, separator_y + 200, cellsize, cellsize)
 snake = [player.copy()]
 velocity = cellsize
 direction = "right"
@@ -83,7 +83,7 @@ speed_level = 1
 
 food = pygame.Rect(
     random.randint(0, (width - cellsize) // cellsize) * cellsize,
-    random.randint(0, (height - cellsize) // cellsize) * cellsize,
+    random.randint(0, (height - separator_y) // cellsize - 1) * cellsize + separator_y,
     cellsize, cellsize
 )
 current_food_type = random.choice(food_types)
@@ -99,12 +99,11 @@ def update_speed():
 
 def reset_game():
     global snake, player, direction, next_direction, food, score
-    player = pygame.Rect(300, 200, cellsize, cellsize)
+    player = pygame.Rect(300, separator_y + 200, cellsize, cellsize)
     snake = [player.copy()]
     direction = "right"
     next_direction = direction
-    food.x = random.randint(0, (width - cellsize) // cellsize) * cellsize
-    food.y = random.randint(0, (height - cellsize) // cellsize) * cellsize
+    spawn_food()
     score = 0
 
     # Reset powerups
@@ -226,20 +225,26 @@ game_over_zoom_in_animation.done = False
 def draw_game():
     screen.fill(Black)
 
-    # Draw food
+    # Draw horizontal line near top (e.g., 70 px from top)
+    line_color = White
+    pygame.draw.line(screen, White, (0, separator_y), (width, separator_y), 1)
+
+    # Draw food BELOW the line (offset y by separator_y)
+    food_rect_below = food
+    pygame.draw.rect(screen, current_food_type["color"], food_rect_below)
+
+    # Draw snake BELOW the line
+    for segment in snake:
+        # Only draw segment if fully visible inside vertical bounds
+        if separator_y <= segment.y <= height - cellsize:
+            pygame.draw.rect(screen, Green, segment)
+    
     pygame.draw.rect(screen, current_food_type["color"], food)
 
-    # Draw snake
-    for segment in snake:
-        pygame.draw.rect(screen, Green, segment)
-
-    # Draw powerups
+    # Draw powerups BELOW the line
     for powerup in powerups.values():
-        pygame.draw.rect(screen, powerup["color"], powerup["rect"])
-
-    # Draw score
-    score_text = font.render(f"Score: {score}", True, White)
-    screen.blit(score_text, (10, 10))
+        if powerup["active"]:
+            pygame.draw.rect(screen, powerup["color"], powerup["rect"])
 
 def update_game():
     global state
@@ -377,10 +382,14 @@ def spawn_powerup():
     active_powerup_key = random.choice(list(powerups.keys()))  # Pick a key string
     active_powerup = powerups[active_powerup_key]             # Get the powerup dict
     active_powerup["rect"].x = random.randint(0, (width - cellsize) // cellsize) * cellsize
-    active_powerup["rect"].y = random.randint(0, (height - cellsize) // cellsize) * cellsize
+    active_powerup["rect"].y = random.randint(0, (height - separator_y) // cellsize - 1) * cellsize + separator_y
     active_powerup["spawn_time"] = pygame.time.get_ticks()
     active_powerup["active"] = True
     last_powerup_time = active_powerup["spawn_time"]
+
+def spawn_food():
+    food.x = random.randint(0, (width - cellsize) // cellsize) * cellsize
+    food.y = random.randint(0, (height - separator_y) // cellsize - 1) * cellsize + separator_y
 
 #main game loop
 while running:
@@ -536,7 +545,11 @@ while running:
             new_head = player.move(0, velocity)
 
         new_head.x %= width
-        new_head.y %= height
+        if new_head.y < separator_y:
+            new_head.y = height - cellsize
+        elif new_head.y >= height:
+            new_head.y = separator_y
+        # else: new_head stays the same if within bounds
 
         snake.insert(0, new_head)
 
@@ -570,7 +583,7 @@ while running:
                 eat_sound.play()
             score += current_food_type["score"]
             food.x = random.randint(0, (width - cellsize) // cellsize) * cellsize
-            food.y = random.randint(0, (height - cellsize) // cellsize) * cellsize
+            food.y = random.randint(0, (height - separator_y - cellsize) // cellsize) * cellsize + separator_y
             current_food_type = random.choice(food_types)
             
             # check if score is a new high score to play sound
@@ -653,9 +666,7 @@ while running:
             screen.blit(text, (width // 2 - text.get_width() // 2, 150 + i * 40))
 
     elif state == "Playing":
-        for segment in snake:
-            pygame.draw.rect(screen, Green, segment)
-        pygame.draw.rect(screen, current_food_type["color"], food)
+        draw_game()
 
         # Draw powerups if active
         for key, pwr in powerups.items():
@@ -667,17 +678,17 @@ while running:
 
         # Draw current score
         score_text = score_font.render(f"Score: {score}", True, White)
-        screen.blit(score_text, (10, 30))  # Adjust Y if needed
+        screen.blit(score_text, (10, 20))  # Adjust Y if needed
 
         # Draw high score
         high_score_text = score_font.render(f"High Score: {highest_score}", True, Green)
-        screen.blit(high_score_text, (10, 10))
+        screen.blit(high_score_text, (10, 2))
 
 
         mute_status = pygame.font.SysFont(None, 24).render("Muted" if music_muted else "Press M to Mute", True, White)
-        screen.blit(mute_status, (width - mute_status.get_width() - 10, 10))
+        screen.blit(mute_status, (width - mute_status.get_width() - 10, 2))
         pause_status = pygame.font.SysFont(None, 24).render("Press P to Pause", True, White)
-        screen.blit(pause_status, (width - pause_status.get_width() - 10, 30))
+        screen.blit(pause_status, (width - pause_status.get_width() - 10, 20))
         quit_msg = pygame.font.SysFont(None, 24).render("Press Q for Main Menu", True, White)
         screen.blit(quit_msg, (width // 2 - quit_msg.get_width() // 2, 10))
 
