@@ -7,9 +7,12 @@ DATA_FILES = [
 ]
 OPTIONS = {
     'argv_emulation': False,
-    'packages': ['pygame', 'requests', 'charset_normalizer'],
+    'packages': ['pygame', 'requests'],
+    'includes': ['charset_normalizer'],  # fix requests warning
+    'resources': ['eat.wav', 'background.wav', 'death.wav', 'highscore.wav'],
     'semi_standalone': True,
 }
+
 
 setup(
     app=APP,

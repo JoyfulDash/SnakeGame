@@ -64,6 +64,7 @@
 	<key>PyRuntimeLocations</key>
 	<array>
 		<string>@executable_path/../Frameworks/Python.framework/Versions/3.11/Python</string>
+		<string>/opt/homebrew/opt/python@3.11/Frameworks/Python.framework/Versions/3.11/Python</string>
 	</array>
 	<key>PythonInfoDict</key>
 	<dict>

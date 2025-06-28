@@ -10,7 +10,7 @@
 		</data>
 		<key>Resources/__boot__.py</key>
 		<data>
-		DM2k1JbFS1HLyWyrnCKSP94zmxw=
+		c10BR/tagGZFWEIKvD1eMfu0LCI=
 		</data>
 		<key>Resources/__error__.sh</key>
 		<data>
@@ -20,229 +20,133 @@
 		<data>
 		9gGx4hwBbMv2Ev7tftFXUPKjCSg=
 		</data>
+		<key>Resources/background.wav</key>
+		<data>
+		fIe57kdyhmYXZzZdmCT6xcye+QY=
+		</data>
+		<key>Resources/death.wav</key>
+		<data>
+		Vdi7xKouYXg7B7sx1qRmpHzcxJI=
+		</data>
+		<key>Resources/eat.wav</key>
+		<data>
+		y3UiEbNOvEVMhevN0uzntNyftdQ=
+		</data>
 		<key>Resources/gameSnake.py</key>
 		<data>
 		QKWCGN+R00/KsGF77PXyRiuJ0RY=
 		</data>
-		<key>Resources/include/python3.11/pyconfig.h</key>
+		<key>Resources/highscore.wav</key>
 		<data>
-		a8xDrekldf3xX9cfhQsGfKaQDfk=
+		ri9h6IaFq6zvwOkv4tOBZVPO35k=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_asyncio.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__init__.py</key>
 		<data>
-		qjjXC0IGzeltP/B6eb8m238LYvM=
+		M4OXT45l9B84qo4PLukRxqhNexg=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_bisect.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__main__.py</key>
 		<data>
-		j9IqOUIqqfqRtofEg2fRG/Tk4cE=
+		6218WGALuhi1rPimykSTchfjf6g=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_blake2.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/__init__.cpython-311.pyc</key>
 		<data>
-		fuDJv2wUh/zvDTDi/Za7BJOCp1g=
+		eCUYzhNbJU3ELXh6q4t4CAW9rAc=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_bz2.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/__main__.cpython-311.pyc</key>
 		<data>
-		iFs50LsJil37p6c2vgegdH4SPOk=
+		W3/JENaWCez8657I023oZ9r8/mQ=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_codecs_cn.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/api.cpython-311.pyc</key>
 		<data>
-		XmWMb1D1djOxL5kPUtfynC+++Ys=
+		qpfNR7RJBIqLB5l5T95yHwYKRtI=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_codecs_hk.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/cd.cpython-311.pyc</key>
 		<data>
-		1N5C0xEyuI1+1VJOHr8Ckbd1Tew=
+		5oNMHoeriydhf9zN+hOoOxmC1a4=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_codecs_iso2022.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/constant.cpython-311.pyc</key>
 		<data>
-		iDYXQuH1Lw0oR4mGhMioCr7plBE=
+		5eFLwM5X0z7+JfJq6wANAK/e9v8=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_codecs_jp.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/legacy.cpython-311.pyc</key>
 		<data>
-		zgyR6IHNl96dFOUVHNNxBEf+upU=
+		DI5xQsT4aIzMKF8OPE+gOzxQXGk=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_codecs_kr.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/md.cpython-311.pyc</key>
 		<data>
-		k7E2LaBeubg4+7LvCoGIU2mLLm0=
+		09MzJjF46rmiS2t8sNAKXKsKleM=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_codecs_tw.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/models.cpython-311.pyc</key>
 		<data>
-		6wR/4lCTfvWkgpgbB0bPXKfflqc=
+		tKf3Wi8IuDucTMnVUXQCY8BhH8M=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_contextvars.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/utils.cpython-311.pyc</key>
 		<data>
-		mCwLjV7AvFGwLwBLF5O13WNIqyw=
+		88L2IzzKm5RPzzN3xQCxAa5FvPU=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_csv.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/version.cpython-311.pyc</key>
 		<data>
-		Y7aVYn5JuflJ/9UL1jXE9xtl7WM=
+		QVVdbntnMXhNQjiBlz/h7z52mks=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_ctypes.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/api.py</key>
 		<data>
-		zYznhuRh4nVL8VGfIW/76tgDsdI=
+		CMconehuG8vkryO1wxAiHK3xFgk=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_datetime.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/cd.py</key>
 		<data>
-		5Mf13cSem4aBviDZKwqAljypo/M=
+		MHpPgfx65x7HSOSXhxa+uxNlXWY=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_decimal.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/cli/__init__.py</key>
 		<data>
-		gbRNohTvDWTqoXdzhgfuajY/Prk=
+		ZnQEhnDR89fPJNVYxGBaG0piWxI=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_elementtree.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/cli/__main__.py</key>
 		<data>
-		g5+aexmyqQ9APeSj7lsc2DYHhzI=
+		la/lafhhoYJwNLmAAhWABCmjy4k=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_hashlib.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/cli/__pycache__/__init__.cpython-311.pyc</key>
 		<data>
-		eBNmTNgG6cMPCOoVpTqofzQ5xCk=
+		Vt6jf+S4zd4o/Av5YNr7hZ0TkJs=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_heapq.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/cli/__pycache__/__main__.cpython-311.pyc</key>
 		<data>
-		PiIrK94liHnaSCN9+tbQ38XJylI=
+		WW9o1AwQe1GbYR5mvXxjtf59ooQ=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_json.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/constant.py</key>
 		<data>
-		SIXZ9zmx+YDSPo7aNXmuf9eq9zs=
+		OBv4pE1qIxItXAjV/+ZgF3Jq7AE=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_lzma.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/legacy.py</key>
 		<data>
-		0Do+8Qofl0jDva7o6XKAueMUfgE=
+		WwDuapKE1EWov2hiHpI7z+AyLtE=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_md5.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/md.cpython-311-darwin.so</key>
 		<data>
-		LQp5C30tcorE/uFV4eCjS3cje5I=
+		6DJZ091tHUBfV4fozGttmQusoZ8=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_multibytecodec.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/md.py</key>
 		<data>
-		B6yZ0X7DctXmmV19e/c3u2Ylr/k=
+		VMSRGps8ehHiKQG5vxt56w8B0qc=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_multiprocessing.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/md__mypyc.cpython-311-darwin.so</key>
 		<data>
-		eCD4kpr5EmXRMhwncJK/lD2AryA=
+		Jx/GTBUSit6vs9xYavRoZB2HAcI=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_opcode.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/models.py</key>
 		<data>
-		FM22KYqRbrMlnJNgN1gKCoOJxSI=
+		UX83CZkPFjbVe2E18PHDLWswmU8=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_pickle.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/py.typed</key>
 		<data>
-		W3Aoizk0CrJUJpUnhA87CqYNgsk=
+		2jmj7l5rSw0yVb/vlWAYkK/YBwk=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_posixshmem.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/utils.py</key>
 		<data>
-		n/+SUDBwWHGWyPLMBzSkc1ifEAk=
+		6nwlme57XZgGzl05nlg65c2CAPM=
 		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_posixsubprocess.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/version.py</key>
 		<data>
-		HRe2vtD6SqXdlEU+AAECbTPfMEY=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_queue.so</key>
-		<data>
-		RTs9cbGqazlgafCBZSOZCWZqKo0=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_random.so</key>
-		<data>
-		InIArxFsvKucoWluhdI8xzwaojg=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_scproxy.so</key>
-		<data>
-		pPy2cm7cOyBPMmrp7nqVR6mEY0g=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_sha1.so</key>
-		<data>
-		NlpTRFDsq18uLKw3pshkVhoOmlw=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_sha256.so</key>
-		<data>
-		i5PCpkdDlXivLJLN71xb2ZWS3wY=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_sha3.so</key>
-		<data>
-		S30o7/hwF7rO1poTG9mKjQKE5kA=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_sha512.so</key>
-		<data>
-		bQoLpc/Si919jfX/dNhaWc4FMJY=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_socket.so</key>
-		<data>
-		z68dIAmZ18pvYD/sPJjoEM0rLcA=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_ssl.so</key>
-		<data>
-		d9mNPJkGL4rQEHYL+e9g1TtTvCE=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_statistics.so</key>
-		<data>
-		+IYKw+lir7Q450cUTD0DkQdIUbM=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_struct.so</key>
-		<data>
-		zT4PxFDL3OfA4BuDoeKi3GM19yA=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_testcapi.so</key>
-		<data>
-		qEGsFnb6ZJvTv2E0PkqmHK49J3M=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_testinternalcapi.so</key>
-		<data>
-		Kb57NV4UqkKUNNwMLF95mNQd2Xc=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/_typing.so</key>
-		<data>
-		BE29pAzuDpD1SF8lXbkrJKc72PY=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/array.so</key>
-		<data>
-		8xdRhPCi7UdiyABc2wVGVw3LtYk=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/binascii.so</key>
-		<data>
-		FSFq9WAdubs/fZUz5h2dMoUhQR8=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/charset_normalizer/md.so</key>
-		<data>
-		w98QeSCugLB3gYz3+Pg9ZKFNwNM=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/fcntl.so</key>
-		<data>
-		A3MDP+mnH7xg2+gr+DzD4wlt1JQ=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/grp.so</key>
-		<data>
-		OJFJJxG2bAs2YFTnB7NB/7sKz1M=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/math.so</key>
-		<data>
-		wuGboCOw+jhBQO48vXPX4247G+M=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/mmap.so</key>
-		<data>
-		j39qERnmvUnGSZZEAbO/zaxq9jQ=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/pyexpat.so</key>
-		<data>
-		zHO/wa88kn+6xOmiUYMZJEoSu/w=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/resource.so</key>
-		<data>
-		BVtEa/yzaiMe8aqq/LInzTEWdo4=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/select.so</key>
-		<data>
-		mopYL9WXPInI1l2p5ucioMnFtRM=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/termios.so</key>
-		<data>
-		tcA0czVd/slivtLtckWhJf/Tw4Y=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/unicodedata.so</key>
-		<data>
-		iHwHMiLDFZjCda+FE5XVK6ON+E4=
-		</data>
-		<key>Resources/lib/python3.11/lib-dynload/zlib.so</key>
-		<data>
-		l/kVdm/eMn2F7XEXHZuO49fDcO0=
+		r7IcnlFPGJlgC3WR8FrAASGx2ag=
 		</data>
 		<key>Resources/lib/python3.11/pkg_resources/__init__.py</key>
 		<data>
@@ -3476,9 +3380,13 @@
 		<data>
 		ST5BJK/VeFyp0YTFg3XBGewNges=
 		</data>
-		<key>Resources/lib/python311.zip</key>
+		<key>Resources/lib/python3.11/site-packages.zip</key>
 		<data>
-		4TwwT22E6n7CBopcNPqU9KPdKcU=
+		lM5SC/APDGruSh1FoRrsQ1VC9Yw=
+		</data>
+		<key>Resources/lib/zlib.cpython-311-darwin.so</key>
+		<data>
+		c5iXvZgvAIxujBiaYIiJmlkCyhE=
 		</data>
 		<key>Resources/openssl.ca/cert.pem</key>
 		<data>
@@ -3490,73 +3398,15 @@
 		</data>
 		<key>Resources/site.pyc</key>
 		<data>
-		tlSOESR/knQTvGOtgj1mdZDgZ/0=
-		</data>
-		<key>Resources/zlib.cpython-311-darwin.so</key>
-		<data>
-		c5iXvZgvAIxujBiaYIiJmlkCyhE=
+		CvtK9bo+rHKJnwX7TKEaHqjnP1k=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Frameworks/Python.framework</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			3zSHA9a1YOjBLZaPv/GeWoJB9r8=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"df348703d6b560e8c12d968fbff19e5a8241f6bf"</string>
-		</dict>
-		<key>Frameworks/libcrypto.3.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			1pp34HzXu7tL0TpDmrpBBDsjgM0=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"d69a77e07cd7bbbb4bd13a439aba41043b2380cd"</string>
-		</dict>
-		<key>Frameworks/liblzma.5.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			NKXMeT5blOi65YSdvytsSnxYuyc=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"34a5cc793e5b94e8bae5849dbf2b6c4a7c58bb27"</string>
-		</dict>
-		<key>Frameworks/libmpdec.4.0.1.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			QK6GdT5JPqpYDYQMkKC9Sa9879s=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"40ae86753e493eaa580d840c90a0bd49af7cefdb"</string>
-		</dict>
-		<key>Frameworks/libmpdec.4.dylib</key>
-		<dict>
-			<key>symlink</key>
-			<string>libmpdec.4.0.1.dylib</string>
-		</dict>
-		<key>Frameworks/libssl.3.dylib</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			B6hK3S26sUs2vAZB1OiwpGgiWpk=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"07a84add2dbab14b36bc0641d4e8b0a468225a99"</string>
-		</dict>
 		<key>MacOS/python</key>
 		<dict>
-			<key>cdhash</key>
-			<data>
-			z1vID04J1iBo8ZMvk7gCY+KzR9o=
-			</data>
-			<key>requirement</key>
-			<string>cdhash H"cf5bc80f4e09d62068f1932f93b80263e2b347da"</string>
+			<key>symlink</key>
+			<string>/Users/jotaerrete/Documents/SnakeGame/venv311/bin/python</string>
 		</dict>
 		<key>Resources/PythonApplet.icns</key>
 		<dict>
@@ -3569,7 +3419,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			1wI7iemr43BPsuHUGC7ujIDeqcoHXROd8GzNtE7v3SE=
+			7h/DMkEStuT1him88aVmFvaZt3OO5pCDzW+BecwsQNs=
 			</data>
 		</dict>
 		<key>Resources/__error__.sh</key>
@@ -3586,6 +3436,27 @@
 			xsOjf7om1sejVGcLqvwdnSA6wWJEobW57X1uMCnsB/g=
 			</data>
 		</dict>
+		<key>Resources/background.wav</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			zd4oDK9/C8gY5UyweA/rQIG8hLEMc+xkkGxetBFzpDk=
+			</data>
+		</dict>
+		<key>Resources/death.wav</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			/CEn/wl57x1hal1kL8fvR6VvZ7pj/79yK8EMbMumAmM=
+			</data>
+		</dict>
+		<key>Resources/eat.wav</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Nf2Wc6rhKKXAMK6EqE7SIZkPJXLABISzXQVFQqpPCVs=
+			</data>
+		</dict>
 		<key>Resources/gameSnake.py</key>
 		<dict>
 			<key>hash2</key>
@@ -3593,390 +3464,211 @@
 			pdg4kwbPZD+cDyYTGv5O6AyML4Gkx1QZsPFTW+/7yo8=
 			</data>
 		</dict>
-		<key>Resources/include/python3.11/pyconfig.h</key>
+		<key>Resources/highscore.wav</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			WqSZP8ibb+ju4c1jRYnaAx9hspV3MB2D6bgqkQM1apU=
+			5wE5NEkaIsJDktaY/vEnx7Frx+/vRODZgatjyBQ4T4E=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_asyncio.so</key>
+		<key>Resources/include</key>
+		<dict>
+			<key>symlink</key>
+			<string>/Users/jotaerrete/Documents/SnakeGame/venv311/include</string>
+		</dict>
+		<key>Resources/lib/python3.11/charset_normalizer/__init__.py</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			9Unbs6oiCaBbanD3h4V8MQJJmQ/eucWJkI2RskEiXzM=
+			OKRxRv2Zhnqk00tqkN0c1BtJjm165fWXLydE52IKuHc=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_bisect.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__main__.py</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			QCP7FJVQM+oUYdZ1B1KPDU/RXVUrgUAyYgFtQkWzGy4=
+			yzYxMR+IhKRHYwcSlavEv8oGdwxsR89mr2X09qXGdps=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_blake2.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/__init__.cpython-311.pyc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rAwp4sYJSkXiQoXUyy/REcygTO84ZQ4CucpuEuya+pA=
+			3aCLZCxBvROTjkmJK+JCIk9oI0DDUWTYkdxfeqTi7+8=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_bz2.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/__main__.cpython-311.pyc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			49RnNgMoV8CXer3GiNxZmdmXjxI50dZFuAAny7lfXPs=
+			7oAM0byoKKvUQhRIJtTE+EL1H1PVjVOybDiee5rwGv0=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_codecs_cn.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/api.cpython-311.pyc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AqU/hCKtOthRjTfj+L4C2j5LvQGB9GALbsv7lqKbwMY=
+			cRSQBDchxtqmVszNgSxzWk7PmPnhqYHNMCzyNaPt2HQ=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_codecs_hk.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/cd.cpython-311.pyc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DaxeQAGS49GUS5qBSZuiQjG+5LFXn5TfXtdccnkCoTo=
+			t1lRwMnDGgLVzqMGvZdkf4P3BrS0aeZvvRoCTNrp5So=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_codecs_iso2022.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/constant.cpython-311.pyc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			tcrSdtfaq+7ilUXe82OFGn53rtbSvq1OFZNlUQpEwIA=
+			u26UkyVNorGTVbxY7+Z4LO0NP/8N3tKEkElH1wb31tU=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_codecs_jp.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/legacy.cpython-311.pyc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			k6glaIBeGtt46ZSIOtI5hCVDd9kD/yEKHHJ/10GoQeM=
+			WnUUKRQKionU3BV5T29XxzlFnCDOa4kq6fnVyavxFQw=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_codecs_kr.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/md.cpython-311.pyc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			srbGMcKlHIFajv7NJ/7/5TlhOdzGEJbF4riO392bxj8=
+			PI0emWDQyK5rtwHdLPNclSjQeiFSv/8BOORc5tMUAlM=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_codecs_tw.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/models.cpython-311.pyc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+TNDojB438u8k6G1b9UUkLZt4ue2F4EoamM16a0yQd0=
+			N3bD0lOdCYS/2FyBpLf09BY01SpinCJUZnVtg2C1HDk=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_contextvars.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/utils.cpython-311.pyc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dg05hlTxTFUOL/HlyDyolXbVuhALcfidquhkwMIjwt4=
+			8tEw3XYoVDt0yN9Y9wGoMAmWJUiCKavcN7hIka347Xo=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_csv.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/version.cpython-311.pyc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			MxNT6XoqqHigCB0z66DWLxmTHehdoyLLlScIklFyddY=
+			UJSb40xCIxWsBZJVajXOvUEvXgfvmgE/w4MHh0TeRBc=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_ctypes.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/api.py</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RPaX2U7EvK0/NeyN1lnpd9OK4EGVLJeDW+BlAtg9sD4=
+			qBRz8mJ/R5E713R6TOyqHEdnmyxbEDnCSHvx32ubDGg=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_datetime.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/cd.py</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ijV/zi5T95Oa9DNPJNuVWZmi5GvnGgOX2Ab80FkU3Cc=
+			WKTo1HDb+H9HfCDc3Bfwq5jzS25Ziy9SE2a74SgTq88=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_decimal.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/cli/__init__.py</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			bIu51YUP9jnW7E7UoYauJDMzZAGxuT2r3jS06083EIU=
+			D8I86lFk2+py45JvqxniTirSj/sFyE6sjaY/0+G1shc=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_elementtree.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/cli/__main__.py</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jZIKllOtTlR1hmjU3JgaHhTJUaYKKVPV38kkck+tjCA=
+			dMaXG6IJXRvqq8z2tig7Qb83+BpWTln55ooiku5/uvg=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_hashlib.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/cli/__pycache__/__init__.cpython-311.pyc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			dfjlOJ3DC9SVhMfTEpd6PtPgX8hIHgYsU6i/OglGNnY=
+			CEPkExj1xI+SW/Xd0ixwef6X3j3+UfdRDGBl1nWBctc=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_heapq.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/cli/__pycache__/__main__.cpython-311.pyc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			hFQcbTISIaPWXkGIbdhqaQDOXOUBYLQc46Aa5wxXkfs=
+			3N/rLGmUdO5gajIdqvz1WHavr8cHTOW8EGe9sRYMgXc=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_json.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/constant.py</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Z9BihI7t3AWNFdGNna+L8UE77k67NPvJcB6BaBDBqn4=
+			7UVY4ldYhmQMHUdgQ/sgZmzcQ0xxYxpBunqSZ+XJZ8U=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_lzma.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/legacy.py</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uB0EtvFzpMLQQiGn1DdUvVX0qJ0jZ6upSUMmcUQlDeY=
+			SZE/AJujOYB1y9Y3+FkFOW9Ye4H1EHTzPbZR8DEsgl8=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_md5.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/md.cpython-311-darwin.so</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			f6AFfv5THdFgWcpYG+Vl/euzJ8h9Gk0ALjkL7VBYGlM=
+			zrtWf/jOcMYbw3yGu22/vrf+YGyNp953nZTEk5CAtzg=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_multibytecodec.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/md.py</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			pKRrz7ADosUkjnd+F0YaWsF16SvcLf4W/uGVIXe4HYo=
+			+/oN3h3/X99nkFfqamD3yu45DC/wfk5odH0Tr/CQiXs=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_multiprocessing.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/md__mypyc.cpython-311-darwin.so</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			C+GDHTbIrt7bXgdo+B2zMh5NgmM2Ps5e7nG43AYSirE=
+			36t7UAK6WvVPYb9DaxTU+lSNvOjJyqD05Oo0/TFgXLY=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_opcode.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/models.py</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ogiv9VgTiS3HopCSed0HfY5NRJyMhHybM/Qan3iGUfQ=
+			lKXhOnIPtiakbK3i//J9wpOfzx3JDTKj7Dn3Rg0VaRI=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_pickle.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/py.typed</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TMRoLcPe3RkAE/9RNWSZRhQWL+s5GpDIUANHcAFP/74=
+			47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_posixshmem.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/utils.py</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TUPk/lUasNPYDvQ5CCmyXa79zsuH8JNVKzth6TSLPRw=
+			sTejPgrdlNsKNucZfJCxJ95lMTLA0ShHLLE3n5wpT9Q=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_posixsubprocess.so</key>
+		<key>Resources/lib/python3.11/charset_normalizer/version.py</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jojsX3wd1se2PhNynZASzn6EPNmLflxivCN5MNuEj/w=
+			koLXlDwKAU5IlYP4qkOpFnsncn74hlphHAlBhlDKzyw=
 			</data>
 		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_queue.so</key>
+		<key>Resources/lib/python3.11/config-3.11-darwin</key>
 		<dict>
-			<key>hash2</key>
-			<data>
-			AtgYhVRF5ZRUj7rL0NSF2+KwsFpvqWlrpVZWylZ/3rY=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_random.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			pbLcBZCLJ/u3iKIDJSxiNvtgGtnv1mu5WFyNFNSizzg=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_scproxy.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			JmvfUIPKu69qx8f5/ZiPoL5i2osYFWU//ccsx0qY2CA=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_sha1.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			2amhYzoNybVEEcwHHecS/Ax7ltRT7DDrJiYXPhp3Fqk=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_sha256.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			RCa5TShD1MKMzz1nQawSdkgxviZq2DH2ZZZOPVaXREI=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_sha3.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			Mk8F1UDchpHwqQ/k2eDcEVgHhroo104fs9JrcM97lZU=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_sha512.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			OFZBQWH/poXrKwyRVNW/OI33wSRGLLpCUVbeE9JdXI8=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_socket.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			yq94l9I8g7jIVTQ3eo77MCPNB5vHeAkwIE+0YLQdsvg=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_ssl.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			Wcx8R3JLZ6wW7IIJJLyxJ6UG6gnVXPH+q2VDOkboG2A=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_statistics.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			uKlML+Rx7c2K1tr2tg8kocR2mBz9qSfb4/HzNQxXh4c=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_struct.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			gVVXblKXHB6Uyx3Sklau4SeGgP3iKhe87g1bzojDRVc=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_testcapi.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			Bxv2IVrjaTmbRtP+Z89UBhFxJZKiqlRP7Te56dQHGjk=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_testinternalcapi.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			8YAY35EC3+3/CschwuyWeBNGJENXT3747boceDg2lxU=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/_typing.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			BVnmQxfYcHsUgdPfB0HQlYxO8kg449zVXIl4yPcTrDU=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/array.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			qPU8REJjZjDykItUGMdCXT9GO2/Z8cuxtXTmEGw9udE=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/binascii.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			+comiAEeDvCJRNQJtuX/YK8YmDIgyOIjAMM1Yeb+6mA=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/charset_normalizer/md.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			TcJAdtUJ47ISWZoU0839RhqqlJfD7JfzSepegw5qfZk=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/fcntl.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			TPhZ0z628HwqwRgIBxfXReAy2ZfOgWRX9NCXOPkFTpk=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/grp.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			YTB7s/Xb4oMVvSYqG9kdvVJc+fe7hf0mBe9xGGfDLYQ=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/math.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			tk76ru/pbe/xWhEL01OlOnTYmMSz+ISPpJfgkKZz+L0=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/mmap.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			QRVaqP+ZunpKPwPTBoP8D/oQURbY7Sh2kVRgcKBCz5w=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/pyexpat.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			M7RicpCYWCLCQe/HUOfbg3IUQ0XOfL/Xes9+Hgk+bFU=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/resource.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			PIqc0aGaKEdDbfebkDMZycs6fI9Nb70pKhNWs7CDrLI=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/select.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			nqcIiKupW5hP2IP1w0YTdZHH4CYMxwxYkHfocx79mBY=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/termios.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			ZBia649gb0MCfWTf4YWPnbwxHELrCBAJdrCtipCBrOM=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/unicodedata.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			1aZi6w5CJobhsqSN2ve0ODqRFiUVlZQlv0WDS95g/Og=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/lib-dynload/zlib.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			mtGa/jpbLWuMZk4w5RzvcpJuzIFS5kOqkycoOaadVRw=
-			</data>
+			<key>symlink</key>
+			<string>/Users/jotaerrete/Documents/SnakeGame/venv311/lib/python3.11/config-3.11-darwin</string>
 		</dict>
 		<key>Resources/lib/python3.11/pkg_resources/__init__.py</key>
 		<dict>
@@ -9634,16 +9326,23 @@
 			WqU86rZ3wvhC+tQjWcjtH/HEKZwWB3iWCZV6SW5DEdQ=
 			</data>
 		</dict>
+		<key>Resources/lib/python3.11/site-packages.zip</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			5GjOQYHyw1c+Xk3RAywWYic9cQzpFH9Z+VMSnI3I8Ec=
+			</data>
+		</dict>
 		<key>Resources/lib/python3.11/site.pyc</key>
 		<dict>
 			<key>symlink</key>
 			<string>../../site.pyc</string>
 		</dict>
-		<key>Resources/lib/python311.zip</key>
+		<key>Resources/lib/zlib.cpython-311-darwin.so</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			i3CxTVUQxcUPHMf+DliMWGCL+UXMNXWQKwkWGofTQpE=
+			tvles73pFkppdFf7h+Rv8AXMwiKVfYoGmAK2Peiay4A=
 			</data>
 		</dict>
 		<key>Resources/openssl.ca/cert.pem</key>
@@ -9664,14 +9363,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			yYXTBGKXN92ZVNWGj4HZd4IBREOJ1Z6MvW3LiC4PUpc=
-			</data>
-		</dict>
-		<key>Resources/zlib.cpython-311-darwin.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			tvles73pFkppdFf7h+Rv8AXMwiKVfYoGmAK2Peiay4A=
+			78IBGA2QDV/xCb95GXQsINGrtAEOpymkK4f/vVDFjKI=
 			</data>
 		</dict>
 	</dict>
