@@ -40,113 +40,9 @@
 		<data>
 		ri9h6IaFq6zvwOkv4tOBZVPO35k=
 		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/__init__.py</key>
+		<key>Resources/lib/python3.11/lib-dynload/charset_normalizer/md.so</key>
 		<data>
-		M4OXT45l9B84qo4PLukRxqhNexg=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/__main__.py</key>
-		<data>
-		6218WGALuhi1rPimykSTchfjf6g=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/__init__.cpython-311.pyc</key>
-		<data>
-		eCUYzhNbJU3ELXh6q4t4CAW9rAc=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/__main__.cpython-311.pyc</key>
-		<data>
-		W3/JENaWCez8657I023oZ9r8/mQ=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/api.cpython-311.pyc</key>
-		<data>
-		qpfNR7RJBIqLB5l5T95yHwYKRtI=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/cd.cpython-311.pyc</key>
-		<data>
-		5oNMHoeriydhf9zN+hOoOxmC1a4=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/constant.cpython-311.pyc</key>
-		<data>
-		5eFLwM5X0z7+JfJq6wANAK/e9v8=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/legacy.cpython-311.pyc</key>
-		<data>
-		DI5xQsT4aIzMKF8OPE+gOzxQXGk=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/md.cpython-311.pyc</key>
-		<data>
-		09MzJjF46rmiS2t8sNAKXKsKleM=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/models.cpython-311.pyc</key>
-		<data>
-		tKf3Wi8IuDucTMnVUXQCY8BhH8M=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/utils.cpython-311.pyc</key>
-		<data>
-		88L2IzzKm5RPzzN3xQCxAa5FvPU=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/version.cpython-311.pyc</key>
-		<data>
-		QVVdbntnMXhNQjiBlz/h7z52mks=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/api.py</key>
-		<data>
-		CMconehuG8vkryO1wxAiHK3xFgk=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/cd.py</key>
-		<data>
-		MHpPgfx65x7HSOSXhxa+uxNlXWY=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/cli/__init__.py</key>
-		<data>
-		ZnQEhnDR89fPJNVYxGBaG0piWxI=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/cli/__main__.py</key>
-		<data>
-		la/lafhhoYJwNLmAAhWABCmjy4k=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/cli/__pycache__/__init__.cpython-311.pyc</key>
-		<data>
-		Vt6jf+S4zd4o/Av5YNr7hZ0TkJs=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/cli/__pycache__/__main__.cpython-311.pyc</key>
-		<data>
-		WW9o1AwQe1GbYR5mvXxjtf59ooQ=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/constant.py</key>
-		<data>
-		OBv4pE1qIxItXAjV/+ZgF3Jq7AE=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/legacy.py</key>
-		<data>
-		WwDuapKE1EWov2hiHpI7z+AyLtE=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/md.cpython-311-darwin.so</key>
-		<data>
-		6DJZ091tHUBfV4fozGttmQusoZ8=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/md.py</key>
-		<data>
-		VMSRGps8ehHiKQG5vxt56w8B0qc=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/md__mypyc.cpython-311-darwin.so</key>
-		<data>
-		Jx/GTBUSit6vs9xYavRoZB2HAcI=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/models.py</key>
-		<data>
-		UX83CZkPFjbVe2E18PHDLWswmU8=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/py.typed</key>
-		<data>
-		2jmj7l5rSw0yVb/vlWAYkK/YBwk=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/utils.py</key>
-		<data>
-		6nwlme57XZgGzl05nlg65c2CAPM=
-		</data>
-		<key>Resources/lib/python3.11/charset_normalizer/version.py</key>
-		<data>
-		r7IcnlFPGJlgC3WR8FrAASGx2ag=
+		w98QeSCugLB3gYz3+Pg9ZKFNwNM=
 		</data>
 		<key>Resources/lib/python3.11/pkg_resources/__init__.py</key>
 		<data>
@@ -3382,7 +3278,7 @@
 		</data>
 		<key>Resources/lib/python3.11/site-packages.zip</key>
 		<data>
-		lM5SC/APDGruSh1FoRrsQ1VC9Yw=
+		wy20fIcrvZhDlQspEInnnnnU/as=
 		</data>
 		<key>Resources/lib/zlib.cpython-311-darwin.so</key>
 		<data>
@@ -3398,7 +3294,7 @@
 		</data>
 		<key>Resources/site.pyc</key>
 		<data>
-		CvtK9bo+rHKJnwX7TKEaHqjnP1k=
+		jbSedVrSodG0ZhEwnsLxvH9eceI=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -3476,199 +3372,17 @@
 			<key>symlink</key>
 			<string>/Users/jotaerrete/Documents/SnakeGame/venv311/include</string>
 		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/__init__.py</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			OKRxRv2Zhnqk00tqkN0c1BtJjm165fWXLydE52IKuHc=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/__main__.py</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			yzYxMR+IhKRHYwcSlavEv8oGdwxsR89mr2X09qXGdps=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/__init__.cpython-311.pyc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			3aCLZCxBvROTjkmJK+JCIk9oI0DDUWTYkdxfeqTi7+8=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/__main__.cpython-311.pyc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			7oAM0byoKKvUQhRIJtTE+EL1H1PVjVOybDiee5rwGv0=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/api.cpython-311.pyc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			cRSQBDchxtqmVszNgSxzWk7PmPnhqYHNMCzyNaPt2HQ=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/cd.cpython-311.pyc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			t1lRwMnDGgLVzqMGvZdkf4P3BrS0aeZvvRoCTNrp5So=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/constant.cpython-311.pyc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			u26UkyVNorGTVbxY7+Z4LO0NP/8N3tKEkElH1wb31tU=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/legacy.cpython-311.pyc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			WnUUKRQKionU3BV5T29XxzlFnCDOa4kq6fnVyavxFQw=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/md.cpython-311.pyc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			PI0emWDQyK5rtwHdLPNclSjQeiFSv/8BOORc5tMUAlM=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/models.cpython-311.pyc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			N3bD0lOdCYS/2FyBpLf09BY01SpinCJUZnVtg2C1HDk=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/utils.cpython-311.pyc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			8tEw3XYoVDt0yN9Y9wGoMAmWJUiCKavcN7hIka347Xo=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/__pycache__/version.cpython-311.pyc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			UJSb40xCIxWsBZJVajXOvUEvXgfvmgE/w4MHh0TeRBc=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/api.py</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			qBRz8mJ/R5E713R6TOyqHEdnmyxbEDnCSHvx32ubDGg=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/cd.py</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			WKTo1HDb+H9HfCDc3Bfwq5jzS25Ziy9SE2a74SgTq88=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/cli/__init__.py</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			D8I86lFk2+py45JvqxniTirSj/sFyE6sjaY/0+G1shc=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/cli/__main__.py</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			dMaXG6IJXRvqq8z2tig7Qb83+BpWTln55ooiku5/uvg=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/cli/__pycache__/__init__.cpython-311.pyc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			CEPkExj1xI+SW/Xd0ixwef6X3j3+UfdRDGBl1nWBctc=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/cli/__pycache__/__main__.cpython-311.pyc</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			3N/rLGmUdO5gajIdqvz1WHavr8cHTOW8EGe9sRYMgXc=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/constant.py</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			7UVY4ldYhmQMHUdgQ/sgZmzcQ0xxYxpBunqSZ+XJZ8U=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/legacy.py</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			SZE/AJujOYB1y9Y3+FkFOW9Ye4H1EHTzPbZR8DEsgl8=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/md.cpython-311-darwin.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			zrtWf/jOcMYbw3yGu22/vrf+YGyNp953nZTEk5CAtzg=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/md.py</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			+/oN3h3/X99nkFfqamD3yu45DC/wfk5odH0Tr/CQiXs=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/md__mypyc.cpython-311-darwin.so</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			36t7UAK6WvVPYb9DaxTU+lSNvOjJyqD05Oo0/TFgXLY=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/models.py</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			lKXhOnIPtiakbK3i//J9wpOfzx3JDTKj7Dn3Rg0VaRI=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/py.typed</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/utils.py</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			sTejPgrdlNsKNucZfJCxJ95lMTLA0ShHLLE3n5wpT9Q=
-			</data>
-		</dict>
-		<key>Resources/lib/python3.11/charset_normalizer/version.py</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			koLXlDwKAU5IlYP4qkOpFnsncn74hlphHAlBhlDKzyw=
-			</data>
-		</dict>
 		<key>Resources/lib/python3.11/config-3.11-darwin</key>
 		<dict>
 			<key>symlink</key>
 			<string>/Users/jotaerrete/Documents/SnakeGame/venv311/lib/python3.11/config-3.11-darwin</string>
+		</dict>
+		<key>Resources/lib/python3.11/lib-dynload/charset_normalizer/md.so</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			TcJAdtUJ47ISWZoU0839RhqqlJfD7JfzSepegw5qfZk=
+			</data>
 		</dict>
 		<key>Resources/lib/python3.11/pkg_resources/__init__.py</key>
 		<dict>
@@ -9330,7 +9044,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5GjOQYHyw1c+Xk3RAywWYic9cQzpFH9Z+VMSnI3I8Ec=
+			lk03P03xqYnu//MC1T/PzwWKoBmrq3tWsUiZD+gx2IU=
 			</data>
 		</dict>
 		<key>Resources/lib/python3.11/site.pyc</key>
@@ -9363,7 +9077,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			78IBGA2QDV/xCb95GXQsINGrtAEOpymkK4f/vVDFjKI=
+			AnGiYHUkbGnHy+thz5ExKuCYWuGm/5d2IXp5GnU7raM=
 			</data>
 		</dict>
 	</dict>
