@@ -1,6 +1,6 @@
 from setuptools import setup
 
-APP = ['snake.py']
+APP = ['gameSnake.py']
 DATA_FILES = []
 OPTIONS = {
     'argv_emulation': True,
