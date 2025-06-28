@@ -64,12 +64,11 @@
 	<key>PyRuntimeLocations</key>
 	<array>
 		<string>@executable_path/../Frameworks/Python.framework/Versions/3.11/Python</string>
-		<string>/opt/homebrew/opt/python@3.11/Frameworks/Python.framework/Versions/3.11/Python</string>
 	</array>
 	<key>PythonInfoDict</key>
 	<dict>
 		<key>PythonExecutable</key>
-		<string>/Users/jotaerrete/Documents/SnakeGame/venv311/bin/python3</string>
+		<string>/Users/jotaerrete/Documents/SnakeGame/venv311/bin/python</string>
 		<key>PythonLongVersion</key>
 		<string>3.11.13 (main, Jun  3 2025, 18:38:25) [Clang 17.0.0 (clang-1700.0.13.3)]</string>
 		<key>PythonShortVersion</key>

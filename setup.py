@@ -4,7 +4,7 @@ APP = ['gameSnake.py']
 DATA_FILES = []
 OPTIONS = {
     'argv_emulation': False,
-    'packages': ['pygame'],
+    'packages': ['pygame', 'requests'],  # add requests here
     # 'iconfile': 'icon.icns',
 }
 
