@@ -4,6 +4,7 @@
 # Ensure when pause, powerup timer stops
 
 import pygame, random, sys, os, requests, time, subprocess
+from setuptools import setup
 
 # Global variables
 music_muted = False
