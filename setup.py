@@ -1,11 +1,14 @@
 from setuptools import setup
+import os
 
 APP = ['gameSnake.py']
-DATA_FILES = []
+DATA_FILES = [
+    ('', ['eat.wav', 'death.wav', 'background.wav', 'highscore.wav'])  # Add all required assets here
+]
 OPTIONS = {
     'argv_emulation': False,
-    'packages': ['pygame', 'requests'],  # add requests here
-    # 'iconfile': 'icon.icns',
+    'packages': ['pygame', 'requests', 'charset_normalizer'],
+    'semi_standalone': True,
 }
 
 setup(
