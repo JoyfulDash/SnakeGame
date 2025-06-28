@@ -5,7 +5,8 @@ DATA_FILES = []
 OPTIONS = {
     'argv_emulation': True,
     'packages': ['pygame'],
-    #'iconfile': 'icon.icns',  # Optional: Add your own icon
+    'semi_standalone': True,  # Added this option
+    # 'iconfile': 'icon.icns',  # Optional: Add your own icon
 }
 
 setup(
