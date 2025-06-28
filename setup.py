@@ -3,10 +3,9 @@ from setuptools import setup
 APP = ['gameSnake.py']
 DATA_FILES = []
 OPTIONS = {
-    'argv_emulation': True,
+    'argv_emulation': False,
     'packages': ['pygame'],
-    'semi_standalone': True,  # Added this option
-    # 'iconfile': 'icon.icns',  # Optional: Add your own icon
+    # 'iconfile': 'icon.icns',
 }
 
 setup(
